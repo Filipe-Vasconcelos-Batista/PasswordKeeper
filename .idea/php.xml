@@ -82,6 +82,8 @@
       <path value="$PROJECT_DIR$/App/vendor/doctrine/persistence" />
       <path value="$PROJECT_DIR$/App/vendor/doctrine/orm" />
       <path value="$PROJECT_DIR$/App/vendor/doctrine/cache" />
+      <path value="$PROJECT_DIR$/App/vendor/symfony/webpack-encore-bundle" />
+      <path value="$PROJECT_DIR$/App/vendor/symfony/asset" />
     </include_path>
   </component>
   <component name="PhpProjectSharedConfiguration" php_language_level="8.2" />
