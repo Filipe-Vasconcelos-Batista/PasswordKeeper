@@ -20,7 +20,7 @@ class PasswordController extends AbstractController
             'password'=> $password
         ]);
     }
-    #[Route('/password/insert', name: 'app_password')]
+    #[Route('/password/insert', name: 'app_password_insert')]
     public function insert(Request $request,EntityManagerInterface $manager): Response
     {
         $form= $this->createForm(PasswordType::class);
@@ -41,12 +41,12 @@ class PasswordController extends AbstractController
         }catch(\Exception $e){
             $this->addFlash('error', $e->getMessage());
         }
-        return $this->render('password/index.html.twig', [
+        return $this->render('password/insert.html.twig', [
             'form'=> $form
         ]);
     }
 
-    #[Route('/password/{id}', name: 'app_password')]
+    #[Route('/password/personal/{id}', name: 'app_password_personal')]
     public function individual(EntityManagerInterface $manager, int $id): Response
     {
         $password=$manager->getRepository(Password::class)->findAll();

@@ -1,0 +1,31 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Insert Passsword{% endblock %}
+
+{% block body %}
+    {% if form %}
+    <div class="">
+        <div class="">
+            <div class="">
+                <div class="">
+                    <div class="">Login</div>
+                    <div class="">
+                        {% block form %}
+                            {{ form_start(form) }}
+                            {{ form_widget(form) }}
+                            <button type="submit">Submit </button>
+                            {{ form_end(form) }}
+                        {% endblock %}
+                    </div>
+                </div>
+            </div>
+        </div>
+
+    {% else %}
+        <div class="" role="alert" id="errorBox">
+            <h1>Ups something went wrong?</h1>
+        </div>
+    {% endif %}
+    </div>
+
+{% endblock %}
