@@ -23,6 +23,10 @@ class Password
     #[ORM\Column(length: 255)]
     private ?string $password = null;
 
+    #[ORM\ManyToOne(targetEntity: User::class)]
+    #[ORM\JoinColumn(nullable: false)]
+    private ?User $user = null;
+
     public function getId(): ?int
     {
         return $this->id;
@@ -60,6 +64,17 @@ class Password
     public function setPassword(string $password): static
     {
         $this->password = $password;
+
+        return $this;
+    }
+    public function getUser(): ?User
+    {
+        return $this->user;
+    }
+
+    public function setUser(?User $user): static
+    {
+        $this->user = $user;
 
         return $this;
     }
