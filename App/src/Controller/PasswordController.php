@@ -12,33 +12,30 @@ use Symfony\Component\Routing\Attribute\Route;
 
 class PasswordController extends AbstractController
 {
-    #[Route('/password', name: 'app_password')]
+    #[Route('/password', name: 'app_password_list')]
     public function index(EntityManagerInterface $manager): Response
     {
-        $password=$manager->getRepository(Password::class)->findAll();
+        $user=$this->getUser();
+        $passwords=$manager->getRepository(Password::class)->findBy(['user'=>$user]);
         return $this->render('password/index.html.twig', [
-            'password'=> $password
+            'passwords'=> $passwords
         ]);
     }
     #[Route('/password/insert', name: 'app_password_insert')]
     public function insert(Request $request,EntityManagerInterface $manager): Response
     {
-        $form= $this->createForm(PasswordType::class);
+        $password=new Password();
+        $form= $this->createForm(PasswordType::class,$password);
         try{
             $form->handleRequest($request);
             if($form->isSubmitted() && $form->isValid()){
-                $newPass=$form->getData();
-                $password=new Password();
-                $user=$this->getUser();
-                $password->setUser($user);
-                $password->setPassword($newPass->getPassword());
-                $password->setDescription($newPass->getDescription());
-                $password->setLocal($newPass->getLocal());
+                $password->setUser($this->getUser());
 
-                $manager->persist($newPass);
+                $manager->persist($password);
                 $manager->flush();
 
                 $this->addFlash('success', 'Password saved successfully!');
+                return $this->redirectToRoute('app_password_list');
             }
         }catch(\Exception $e){
             $this->addFlash('error', $e->getMessage());

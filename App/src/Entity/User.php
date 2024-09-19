@@ -3,6 +3,8 @@
 namespace App\Entity;
 
 use App\Repository\UserRepository;
+use Doctrine\Common\Collections\ArrayCollection;
+use Doctrine\Common\Collections\Collection;
 use Doctrine\ORM\Mapping as ORM;
 use Symfony\Bridge\Doctrine\Validator\Constraints\UniqueEntity;
 use Symfony\Component\Security\Core\User\PasswordAuthenticatedUserInterface;
@@ -33,6 +35,18 @@ class User implements UserInterface, PasswordAuthenticatedUserInterface
      */
     #[ORM\Column]
     private ?string $password = null;
+
+    /**
+     * @var Collection<int, Password>
+     */
+    #[ORM\OneToMany(targetEntity: Password::class, mappedBy: 'user', orphanRemoval: true)]
+    private Collection $passwords;
+
+    public function __construct()
+    {
+        $this->passwords = new ArrayCollection();
+    }
+
 
     public function getId(): ?int
     {
@@ -108,4 +122,35 @@ class User implements UserInterface, PasswordAuthenticatedUserInterface
         // If you store any temporary, sensitive data on the user, clear it here
         // $this->plainPassword = null;
     }
+
+    /**
+     * @return Collection<int, Password>
+     */
+    public function getPasswords(): Collection
+    {
+        return $this->passwords;
+    }
+
+    public function addPassword(Password $password): static
+    {
+        if (!$this->passwords->contains($password)) {
+            $this->passwords->add($password);
+            $password->setUser($this);
+        }
+
+        return $this;
+    }
+
+    public function removePassword(Password $password): static
+    {
+        if ($this->passwords->removeElement($password)) {
+            // set the owning side to null (unless already changed)
+            if ($password->getUser() === $this) {
+                $password->setUser(null);
+            }
+        }
+
+        return $this;
+    }
+
 }

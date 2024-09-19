@@ -1,10 +1,35 @@
 {% extends 'base.html.twig' %}
 
-{% block title %}Hello PasswordController!{% endblock %}
+{% block title %}Passwords{% endblock %}
 
 {% block body %}
-    {% if password %}
+    {% if passwords %}
+        <div>
+            <div>
+                <h1>your passwords </h1>
+            </div>
+            <div>
+                <div>
+                    <table>
+                        <thead>
+                        <tr>
+                            <th>Local</th>
+                            <th>Level</th>
+                        </tr>
+                        </thead>
+                        <tbody>
 
+                            {% for password in passwords %}
+                            <tr>
+                                <td>{{ password.local }}</td>
+                                <td>{{ password.password }}</td>
+                            </tr>
+                            {% endfor %}
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
     {% else %}
         <h1>There are no passwords saved</h1>
     {% endif %}
