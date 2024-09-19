@@ -29,6 +29,8 @@ class PasswordController extends AbstractController
             if($form->isSubmitted() && $form->isValid()){
                 $newPass=$form->getData();
                 $password=new Password();
+                $user=$this->getUser();
+                $password->setUser($user);
                 $password->setPassword($newPass->getPassword());
                 $password->setDescription($newPass->getDescription());
                 $password->setLocal($newPass->getLocal());
