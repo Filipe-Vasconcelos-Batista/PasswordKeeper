@@ -1,0 +1,24 @@
+framework:
+    workflows:
+        level_workflow:
+            type: 'state_machine'
+            marking_store:
+                type: 'method'
+                property: 'currentLevel'
+            supports:
+                - App\Entity\Password
+            initial_marking: 'low'
+            places:
+                - low
+                - medium
+                - high
+            transitions:
+                to_low:
+                    from: [medium, high]
+                    to: low
+                to_medium:
+                    from: [ low, high ]
+                    to: medium
+                to_high:
+                    from: [ medium, low ]
+                    to: high

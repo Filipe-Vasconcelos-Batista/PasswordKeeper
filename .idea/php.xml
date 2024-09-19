@@ -84,6 +84,7 @@
       <path value="$PROJECT_DIR$/App/vendor/doctrine/cache" />
       <path value="$PROJECT_DIR$/App/vendor/symfony/webpack-encore-bundle" />
       <path value="$PROJECT_DIR$/App/vendor/symfony/asset" />
+      <path value="$PROJECT_DIR$/App/vendor/symfony/workflow" />
     </include_path>
   </component>
   <component name="PhpProjectSharedConfiguration" php_language_level="8.2" />
