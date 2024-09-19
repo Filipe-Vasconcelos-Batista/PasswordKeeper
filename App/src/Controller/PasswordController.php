@@ -45,11 +45,15 @@ class PasswordController extends AbstractController
         ]);
     }
 
-    #[Route('/password/personal/{id}', name: 'app_password_personal')]
+    #[Route('/password/individual/{id}', name: 'app_password_personal')]
     public function individual(EntityManagerInterface $manager, int $id): Response
     {
-        $password=$manager->getRepository(Password::class)->findAll();
-        return $this->render('password/index.html.twig', [
+
+        $password=$manager->getRepository(Password::class)->findOneBy(['id'=> $id]);
+        if($password->getUser() !== $this->getUser()){
+            return new Response('Ups seems that you cannot see this.', Response::HTTP_FORBIDDEN);
+    }
+        return $this->render('password/individual.html.twig', [
             'password'=> $password
         ]);
     }
