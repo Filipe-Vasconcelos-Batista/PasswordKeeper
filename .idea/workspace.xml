@@ -4,19 +4,12 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="86291950-77e0-4282-b227-017133bf5869" name="Changes" comment="Feat: we can now successfully store the passwords">
-      <change beforePath="$PROJECT_DIR$/.idea/PasswordKeeper.iml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/PasswordKeeper.iml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/php.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/php.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/App/composer.json" beforeDir="false" afterPath="$PROJECT_DIR$/App/composer.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/App/composer.lock" beforeDir="false" afterPath="$PROJECT_DIR$/App/composer.lock" afterDir="false" />
+    <list default="true" id="86291950-77e0-4282-b227-017133bf5869" name="Changes" comment="chore: updating the Password entity">
+      <change afterPath="$PROJECT_DIR$/App/templates/password/individual.html.twig" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/dataSources/eb2ead3e-6ad8-407f-8d74-aa25723162f4.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/dataSources/eb2ead3e-6ad8-407f-8d74-aa25723162f4.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/App/src/Controller/PasswordController.php" beforeDir="false" afterPath="$PROJECT_DIR$/App/src/Controller/PasswordController.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/App/src/Entity/Password.php" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/App/src/Entity/User.php" beforeDir="false" afterPath="$PROJECT_DIR$/App/src/Entity/User.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/App/src/Form/PasswordType.php" beforeDir="false" afterPath="$PROJECT_DIR$/App/src/Form/PasswordType.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/App/src/Repository/PasswordRepository.php" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/App/symfony.lock" beforeDir="false" afterPath="$PROJECT_DIR$/App/symfony.lock" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/App/templates/password/index.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/App/templates/password/index.html.twig" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/App/templates/password/insert.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/App/templates/password/insert.html.twig" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/App/src/Entity/Password.php" beforeDir="false" afterPath="$PROJECT_DIR$/App/src/Entity/Password.php" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -30,7 +23,7 @@
   <component name="Git.Settings">
     <option name="RECENT_BRANCH_BY_REPOSITORY">
       <map>
-        <entry key="$PROJECT_DIR$" value="main" />
+        <entry key="$PROJECT_DIR$" value="11-now-we-need-to-show-the-password" />
       </map>
     </option>
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
@@ -135,7 +128,7 @@
   <component name="PropertiesComponent"><![CDATA[{
   "keyToString": {
     "RunOnceActivity.ShowReadmeOnStart": "true",
-    "git-widget-placeholder": "11-now-we-need-to-show-the-password",
+    "git-widget-placeholder": "13-now-we-should-be-able-to-see-the-individual-page-for-the-password-and-edit-it",
     "ignore.virus.scanning.warn.message": "true",
     "last_opened_file_path": "C:/Users/Filipe Batista/Documents/project/fbatis-WD.4C.2.6",
     "node.js.detected.package.eslint": "true",
@@ -288,6 +281,7 @@
     <MESSAGE value="fix: now the security works correctelly" />
     <MESSAGE value="Chore: New migration created and run" />
     <MESSAGE value="Feat: we can now successfully store the passwords" />
-    <option name="LAST_COMMIT_MESSAGE" value="Feat: we can now successfully store the passwords" />
+    <MESSAGE value="chore: updating the Password entity" />
+    <option name="LAST_COMMIT_MESSAGE" value="chore: updating the Password entity" />
   </component>
 </project>

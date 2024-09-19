@@ -27,6 +27,10 @@ class Password
     #[ORM\JoinColumn(nullable: false)]
     private ?User $user = null;
 
+    #[ORM\Column(length: 255)]
+    private ?string $securityLevel = 'low';
+
+
     public function getId(): ?int
     {
         return $this->id;
@@ -75,6 +79,17 @@ class Password
     public function setUser(?User $user): static
     {
         $this->user = $user;
+
+        return $this;
+    }
+    public function getSecurityLevel(): ?string
+    {
+        return $this->securityLevel;
+    }
+
+    public function setSecurityLevel(string $currentLevel): static
+    {
+        $this->securityLevel = $currentLevel;
 
         return $this;
     }
