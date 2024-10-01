@@ -1,18 +1,17 @@
 {% extends 'base.html.twig' %}
 
-{% block title %}Password{% endblock %}
+{% block title %}Password Individual{% endblock %}
 
 {% block body %}
          <div>
             <div>
-                <h1>your password </h1>
+                <h1>{{ password.local }}</h1>
             </div>
             <div>
                 <div>
                     <table>
                         <thead>
                         <tr>
-                            <th>Name</th>
                             <th>Password</th>
                             <th>Level</th>
                             <th>Description</th>
@@ -20,7 +19,6 @@
                         </thead>
                         <tbody>
                             <tr>
-                                <td>{{ password.local }}</td>
                                 <td>{{ password.password }}</td>
                                 <td>{{ password.securityLevel }}</td>
                                 <td>{{ password.description }}</td>
