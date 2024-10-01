@@ -6,7 +6,7 @@
     {% if passwords %}
         <div>
             <div>
-                <h1>your passwords </h1>
+                <h1>Your Passwords </h1>
             </div>
             <div>
                 <div>
@@ -19,12 +19,10 @@
                         </thead>
                         <tbody>
                             {% for password in passwords %}
-                                    <tr>
-
-                                        <td><a href="{{ path('app_password_personal',{ 'id':password.id}) }}">{{ password.local }}</a></td>
-                                        <td>{{ password.password }}</td>
-
-                                    </tr>
+                                <tr>
+                                    <td><a href="{{ path('app_password_personal',{ 'id':password.id}) }}">{{ password.local }}</a></td>
+                                    <td>{{ password.password }}</td>
+                                </tr>
                             {% endfor %}
                         </tbody>
                     </table>
