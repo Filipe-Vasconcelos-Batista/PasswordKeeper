@@ -18,12 +18,13 @@
                         </tr>
                         </thead>
                         <tbody>
-
                             {% for password in passwords %}
-                            <tr>
-                                <td>{{ password.local }}</td>
-                                <td>{{ password.password }}</td>
-                            </tr>
+                                    <tr>
+
+                                        <td><a href="{{ path('app_password_personal',{ 'id':password.id}) }}">{{ password.local }}</a></td>
+                                        <td>{{ password.password }}</td>
+
+                                    </tr>
                             {% endfor %}
                         </tbody>
                     </table>
