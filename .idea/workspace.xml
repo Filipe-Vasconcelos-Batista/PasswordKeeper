@@ -4,10 +4,11 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="86291950-77e0-4282-b227-017133bf5869" name="Changes" comment="chore: Code clean up">
-      <change afterPath="$PROJECT_DIR$/App/src/Service/CreatePasswordApi.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/App/templates/password/individual.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/App/templates/password/individual.html.twig" afterDir="false" />
+    <list default="true" id="86291950-77e0-4282-b227-017133bf5869" name="Changes" comment="feat:started the file and directory to use an api to create the password">
+      <change beforePath="$PROJECT_DIR$/App/composer.json" beforeDir="false" afterPath="$PROJECT_DIR$/App/composer.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/App/composer.lock" beforeDir="false" afterPath="$PROJECT_DIR$/App/composer.lock" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/App/config/services.yaml" beforeDir="false" afterPath="$PROJECT_DIR$/App/config/services.yaml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/App/src/Service/CreatePasswordApi.php" beforeDir="false" afterPath="$PROJECT_DIR$/App/src/Service/PasswordGeneratorService.php" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -113,6 +114,8 @@
       <path value="$PROJECT_DIR$/App/vendor/symfony/webpack-encore-bundle" />
       <path value="$PROJECT_DIR$/App/vendor/symfony/asset" />
       <path value="$PROJECT_DIR$/App/vendor/symfony/workflow" />
+      <path value="$PROJECT_DIR$/App/vendor/symfony/http-client-contracts" />
+      <path value="$PROJECT_DIR$/App/vendor/symfony/http-client" />
     </include_path>
   </component>
   <component name="ProjectColorInfo">{
@@ -161,7 +164,7 @@
       <workItem from="1726500966942" duration="12352000" />
       <workItem from="1726651492098" duration="17856000" />
       <workItem from="1727791149015" duration="2205000" />
-      <workItem from="1727965044720" duration="1177000" />
+      <workItem from="1727965044720" duration="2332000" />
     </task>
     <task id="LOCAL-00001" summary="feat:add password page">
       <option name="closed" value="true" />
@@ -283,7 +286,15 @@
       <option name="project" value="LOCAL" />
       <updated>1727792795733</updated>
     </task>
-    <option name="localTasksCounter" value="16" />
+    <task id="LOCAL-00016" summary="feat:started the file and directory to use an api to create the password">
+      <option name="closed" value="true" />
+      <created>1727966405168</created>
+      <option name="number" value="00016" />
+      <option name="presentableId" value="LOCAL-00016" />
+      <option name="project" value="LOCAL" />
+      <updated>1727966405168</updated>
+    </task>
+    <option name="localTasksCounter" value="17" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -308,6 +319,7 @@
     <MESSAGE value="chore: updating the Password entity" />
     <MESSAGE value="chore: Now its connected the password to the password individual page" />
     <MESSAGE value="chore: Code clean up" />
-    <option name="LAST_COMMIT_MESSAGE" value="chore: Code clean up" />
+    <MESSAGE value="feat:started the file and directory to use an api to create the password" />
+    <option name="LAST_COMMIT_MESSAGE" value="feat:started the file and directory to use an api to create the password" />
   </component>
 </project>
