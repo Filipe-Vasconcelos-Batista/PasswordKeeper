@@ -12,6 +12,13 @@
                     <div class="">
                         {% block form %}
                             {{ form_start(form) }}
+                            <turbo-frame id="password-frame">
+                                {{ form_row(form.password, {
+                                    id: 'password'
+                                }) }}
+                            </turbo-frame>
+                            <button type="button" onclick="generatePassword()">Generate</button>
+
                             <button type="submit">Submit </button>
                             {{ form_end(form) }}
 
