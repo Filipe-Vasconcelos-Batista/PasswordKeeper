@@ -2,6 +2,10 @@
     "devDependencies": {
         "@babel/core": "^7.17.0",
         "@babel/preset-env": "^7.16.0",
+        "@hotwired/stimulus": "^3.0.0",
+        "@hotwired/turbo": "^7.1.1 || ^8.0",
+        "@symfony/stimulus-bridge": "^3.2.0",
+        "@symfony/ux-turbo": "file:vendor/symfony/ux-turbo/assets",
         "@symfony/webpack-encore": "^4.0.0",
         "autoprefixer": "^10.4.20",
         "core-js": "^3.23.0",
@@ -9,8 +13,9 @@
         "postcss-loader": "^8.1.1",
         "regenerator-runtime": "^0.13.9",
         "tailwindcss": "^3.4.11",
-        "webpack": "^5.74.0",
+        "webpack": "^5.95.0",
         "webpack-cli": "^4.10.0",
+        "webpack-manifest-plugin": "^5.0.0",
         "webpack-notifier": "^1.15.0"
     },
     "license": "UNLICENSED",
@@ -20,5 +25,8 @@
         "dev": "encore dev",
         "watch": "encore dev --watch",
         "build": "encore production --progress"
+    },
+    "dependencies": {
+        "@hotwired/turbo-rails": "^8.0.10"
     }
 }

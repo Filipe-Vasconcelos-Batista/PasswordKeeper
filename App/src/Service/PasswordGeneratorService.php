@@ -15,18 +15,22 @@ class PasswordGeneratorService
     }
     public function generatePassword(int $length=16, bool $excludeNumbers=false, bool $excludeSpecialChars=false): string
     {
-        $response= $this->client->request('GET', 'https://api.api-ninjas.com/vi/passwordgenerator',
-        [
-            'headers'=>[
-                'X-Api-Key' => $this->apikey,
-            ],
-            'query'=>[
-                'length'=>$length,
-                'exclude_numbers'=>$excludeNumbers,
-                'exclude_special_chars'=>$excludeSpecialChars,
-            ],
-        ]);
-        $data= $response->toArray();
-        return $data['password'] ?? '';
+        try{
+            $response= $this->client->request('GET', 'https://api.api-ninjas.com/vi/passwordgenerator',
+                [
+                    'headers'=>[
+                        'X-Api-Key' => $this->apikey,
+                    ],
+                    'query'=>[
+                        'length'=>$length,
+                        'exclude_numbers'=>$excludeNumbers,
+                        'exclude_special_chars'=>$excludeSpecialChars,
+                    ],
+                ]);
+            $data= $response->toArray();
+            return $data['password'] ?? '';
+        }catch (\Exception $e){
+            throw new \RuntimeException('Error generating password: ' .$e->getMessage(),0,$e);
+        }
     }
 }

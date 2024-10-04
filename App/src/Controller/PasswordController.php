@@ -3,7 +3,9 @@
 namespace App\Controller;
 
 use App\Entity\Password;
+use App\Form\PasswordGenerateType;
 use App\Form\PasswordType;
+use App\Service\PasswordGeneratorService;
 use Doctrine\ORM\EntityManagerInterface;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\Request;
@@ -43,6 +45,23 @@ class PasswordController extends AbstractController
         return $this->render('password/insert.html.twig', [
             'form'=> $form
         ]);
+    }
+    #[Route('/password/generate', name: 'app_password_generate')]
+    public function generate(Request $request, PasswordGeneratorService $passwordGeneratorService, EntityManagerInterface $manager): Response{
+        $password=new Password();
+        $form= $this->createForm(PasswordGenerateType::class,$password);
+        $form->handleRequest($request);
+        try{
+            if($form->isSubmitted() && $form->isValid()){
+                $password->setUser($this->getUser());
+                $manager->persist($password);
+                $passwordGeneratorService->generatePassword();
+                $manager->flush();
+            }
+        }catch(\Exception $e){
+            $this->addFlash('Your password could not be generated', $e->getMessage());
+        };
+
     }
 
     #[Route('/password/individual/{id}', name: 'app_password_personal')]

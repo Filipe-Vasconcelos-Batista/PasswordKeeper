@@ -8,7 +8,7 @@ parameters:
 services:
     App\Service\PasswordGeneratorService:
         arguments:
-            $apiKey: '$_ENV['API_NINJA_KEY']'
+            $apiKey: '%env(API_NINJA_KEY)%'
     # default configuration for services in *this* file
     _defaults:
         autowire: true      # Automatically injects dependencies in your services.
