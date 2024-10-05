@@ -27,10 +27,11 @@ class PasswordController extends AbstractController
     public function insert(Request $request,EntityManagerInterface $manager): Response
     {
         $password=new Password();
-        $form= $this->createForm(PasswordType::class,$password);
+        $formInsert= $this->createForm(PasswordType::class,$password);
+        $formInsert->handleRequest($request);
         try{
-            $form->handleRequest($request);
-            if($form->isSubmitted() && $form->isValid()){
+
+            if($formInsert->isSubmitted() && $formInsert->isValid()){
                 $password->setUser($this->getUser());
 
                 $manager->persist($password);
@@ -43,24 +44,42 @@ class PasswordController extends AbstractController
             $this->addFlash('error', $e->getMessage());
         }
         return $this->render('password/insert.html.twig', [
-            'form'=> $form
+            'form'=> $formInsert
         ]);
     }
     #[Route('/password/generate', name: 'app_password_generate')]
-    public function generate(Request $request, PasswordGeneratorService $passwordGeneratorService, EntityManagerInterface $manager): Response{
+    public function generatePassword(Request $request, PasswordGeneratorService $passwordGeneratorService, EntityManagerInterface $manager): Response{
         $password=new Password();
-        $form= $this->createForm(PasswordGenerateType::class,$password);
+        $generated=null;
+        $form= $this->createForm(PasswordType::class,$password);
+        $generateForm=$this->createForm(PasswordGenerateType::class);
+$special=null;
+$numbers=null;
         $form->handleRequest($request);
+        $generateForm->handleRequest($request);
         try{
             if($form->isSubmitted() && $form->isValid()){
                 $password->setUser($this->getUser());
                 $manager->persist($password);
-                $passwordGeneratorService->generatePassword();
                 $manager->flush();
             }
+            elseif($generateForm->isSubmitted() && $generateForm->isValid()){
+                $formData=$generateForm->getData();
+                $length=$formData['length'];
+                $numbers=$formData['numbers'];
+                $special=$formData['specialk'];
+                $generated=$passwordGeneratorService->generatePassword($length,$numbers,$special);
+            }
         }catch(\Exception $e){
-            $this->addFlash('Your password could not be generated', $e->getMessage());
+            $this->addFlash('error','Your password could not be generated', $e->getMessage());
         };
+        return $this->render('password/generate.html.twig', [
+            'special'=>$special,
+            'number'=>$numbers,
+            'generatedPassword'=> $generated,
+            'form'=> $form,
+            'generateform'=> $generateForm
+        ]);
 
     }
 

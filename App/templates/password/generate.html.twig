@@ -1,0 +1,48 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Generate Password{% endblock %}
+
+{% block body %}
+    <h1>Insert your Password</h1>
+    {% if number %}
+    <p>{{ number }}</p>
+    {% endif %}
+    {% if special %}
+    <p>{{ special }}</p>
+    {% endif %}
+    {{ form_start(form) }}
+    {% if generatedPassword %}
+        {{ form_row(form.password,{
+            id:'title',
+            value: generatedPassword
+        }) }}
+    {% else %}
+    {{ form_row(form.password,{
+        id:'title',
+    }) }}
+    {% endif %}
+    {{ form_row(form.securityLevel) }}
+    {{ form_row(form.local) }}
+    {{ form_row(form.description) }}
+    <button type="submit">Save Password</button>
+    {{ form_end(form) }}
+
+    <h2>Or Generate a New Password</h2>
+    <p>this will also reset your security level/Local and description</p>
+
+    {{ form_start(generateform) }}
+    {{ form_row(generateform.length,{
+        label: 'Length'
+    }) }}
+    {{ form_row(generateform.numbers,{
+        label: 'No Numbers'
+    }) }}
+    {{ form_row(generateform.specialk,{
+        label: 'No special Characteres'
+    }) }}
+
+    {{ form_widget(generateform) }}
+    <button type="submit">Generate Password</button>
+    {{ form_end(generateform) }}
+{% endblock %}
+

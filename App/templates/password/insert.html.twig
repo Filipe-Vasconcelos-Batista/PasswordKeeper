@@ -12,13 +12,21 @@
                     <div class="">
                         {% block form %}
                             {{ form_start(form) }}
+                            {% if generatedPassword %}
                             <turbo-frame id="password-frame">
                                 {{ form_row(form.password, {
-                                    id: 'password'
+                                    id: 'password',
+                                    value: generatedPassword
                                 }) }}
                             </turbo-frame>
-                            <button type="button" onclick="generatePassword()">Generate</button>
-
+                            {% else %}
+                            {{ form_row(form.password, {
+                                id: 'password'
+                            }) }}
+                            {% endif %}
+                            <form  action="{{ path('app_password_generate')}}" method="post" data-turbo-frame="password-frame">
+                        <button type='submit'>lets try</button>
+                        </form>
                             <button type="submit">Submit </button>
                             {{ form_end(form) }}
 

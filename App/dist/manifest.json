@@ -1,4 +1,0 @@
-{
-  "main.js": "/buildbundle.js",
-  "actioncable.js": "/buildactioncable.bundle.js"
-}
