@@ -12,9 +12,8 @@ class PasswordType extends AbstractType
 {
     public function buildForm(FormBuilderInterface $builder, array $options): void
     {
+        parent::buildForm($builder, $options);
         $builder
-            ->add('local')
-            ->add('description')
             ->add('password')
             ->add('securityLevel', ChoiceType::class,[
                 'choices'=>[
@@ -23,6 +22,8 @@ class PasswordType extends AbstractType
                     'High'=>'high',
                 ],
             ])
+            ->add('local')
+            ->add('description')
         ;
     }
 

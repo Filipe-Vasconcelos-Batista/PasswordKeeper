@@ -4,12 +4,17 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="86291950-77e0-4282-b227-017133bf5869" name="Changes" comment="chore: updating the Password entity">
-      <change beforePath="$PROJECT_DIR$/.idea/dataSources.local.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/dataSources.local.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/dataSources/eb2ead3e-6ad8-407f-8d74-aa25723162f4.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/dataSources/eb2ead3e-6ad8-407f-8d74-aa25723162f4.xml" afterDir="false" />
+    <list default="true" id="86291950-77e0-4282-b227-017133bf5869" name="Changes" comment="chore: trying to make the turbo frames work the way I want it">
+      <change afterPath="$PROJECT_DIR$/App/templates/password/generate.html.twig" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/App/config/packages/security.yaml" beforeDir="false" afterPath="$PROJECT_DIR$/App/config/packages/security.yaml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/App/templates/password/index.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/App/templates/password/index.html.twig" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/App/assets/app.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/App/config/services.yaml" beforeDir="false" afterPath="$PROJECT_DIR$/App/config/services.yaml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/App/dist/manifest.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/App/src/Controller/PasswordController.php" beforeDir="false" afterPath="$PROJECT_DIR$/App/src/Controller/PasswordController.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/App/src/Form/PasswordGenerateType.php" beforeDir="false" afterPath="$PROJECT_DIR$/App/src/Form/PasswordGenerateType.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/App/src/Form/PasswordType.php" beforeDir="false" afterPath="$PROJECT_DIR$/App/src/Form/PasswordType.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/App/src/Service/PasswordGeneratorService.php" beforeDir="false" afterPath="$PROJECT_DIR$/App/src/Service/PasswordGeneratorService.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/App/templates/password/insert.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/App/templates/password/insert.html.twig" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -115,6 +120,10 @@
       <path value="$PROJECT_DIR$/App/vendor/symfony/webpack-encore-bundle" />
       <path value="$PROJECT_DIR$/App/vendor/symfony/asset" />
       <path value="$PROJECT_DIR$/App/vendor/symfony/workflow" />
+      <path value="$PROJECT_DIR$/App/vendor/symfony/http-client-contracts" />
+      <path value="$PROJECT_DIR$/App/vendor/symfony/http-client" />
+      <path value="$PROJECT_DIR$/App/vendor/symfony/stimulus-bundle" />
+      <path value="$PROJECT_DIR$/App/vendor/symfony/ux-turbo" />
     </include_path>
   </component>
   <component name="ProjectColorInfo">{
@@ -125,25 +134,31 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent">{
-  &quot;keyToString&quot;: {
-    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
-    &quot;git-widget-placeholder&quot;: &quot;main&quot;,
-    &quot;ignore.virus.scanning.warn.message&quot;: &quot;true&quot;,
-    &quot;last_opened_file_path&quot;: &quot;/home/filifil/PhpstormProjects/SmartCellar/App&quot;,
-    &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
-    &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
-    &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
-    &quot;node.js.selected.package.tslint&quot;: &quot;(autodetect)&quot;,
-    &quot;nodejs_package_manager_path&quot;: &quot;npm&quot;,
-    &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
+  <component name="PropertiesComponent"><![CDATA[{
+  "keyToString": {
+    "RunOnceActivity.ShowReadmeOnStart": "true",
+    "git-widget-placeholder": "16-find-a-way-to-automatically-create-a-password",
+    "ignore.virus.scanning.warn.message": "true",
+    "last_opened_file_path": "/home/filifil/PhpstormProjects/SmartCellar/App",
+    "node.js.detected.package.eslint": "true",
+    "node.js.detected.package.tslint": "true",
+    "node.js.selected.package.eslint": "(autodetect)",
+    "node.js.selected.package.tslint": "(autodetect)",
+    "nodejs_package_manager_path": "npm",
+    "ts.external.directory.path": "/home/filifil/Transferências/PhpStorm-241.14494.237/plugins/javascript-impl/jsLanguageServicesImpl/external",
+    "vue.rearranger.settings.migration": "true"
   },
-  &quot;keyToStringList&quot;: {
-    &quot;DatabaseDriversLRU&quot;: [
-      &quot;mysql&quot;
+  "keyToStringList": {
+    "DatabaseDriversLRU": [
+      "mysql"
     ]
   }
-}</component>
+}]]></component>
+  <component name="RecentsManager">
+    <key name="CopyFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/App/public/build" />
+    </key>
+  </component>
   <component name="SharedIndexes">
     <attachedChunks>
       <set>
@@ -162,7 +177,9 @@
       <updated>1726500965860</updated>
       <workItem from="1726500966942" duration="12352000" />
       <workItem from="1726651492098" duration="17856000" />
-      <workItem from="1727791149015" duration="1344000" />
+      <workItem from="1727791149015" duration="2205000" />
+      <workItem from="1727965044720" duration="2332000" />
+      <workItem from="1728048528867" duration="18747000" />
     </task>
     <task id="LOCAL-00001" summary="feat:add password page">
       <option name="closed" value="true" />
@@ -260,7 +277,55 @@
       <option name="project" value="LOCAL" />
       <updated>1726731763695</updated>
     </task>
-    <option name="localTasksCounter" value="13" />
+    <task id="LOCAL-00013" summary="chore: Now its connected the password to the password individual page">
+      <option name="closed" value="true" />
+      <created>1727792533757</created>
+      <option name="number" value="00013" />
+      <option name="presentableId" value="LOCAL-00013" />
+      <option name="project" value="LOCAL" />
+      <updated>1727792533757</updated>
+    </task>
+    <task id="LOCAL-00014" summary="chore: Code clean up">
+      <option name="closed" value="true" />
+      <created>1727792594734</created>
+      <option name="number" value="00014" />
+      <option name="presentableId" value="LOCAL-00014" />
+      <option name="project" value="LOCAL" />
+      <updated>1727792594734</updated>
+    </task>
+    <task id="LOCAL-00015" summary="chore: Code clean up">
+      <option name="closed" value="true" />
+      <created>1727792795733</created>
+      <option name="number" value="00015" />
+      <option name="presentableId" value="LOCAL-00015" />
+      <option name="project" value="LOCAL" />
+      <updated>1727792795733</updated>
+    </task>
+    <task id="LOCAL-00016" summary="feat:started the file and directory to use an api to create the password">
+      <option name="closed" value="true" />
+      <created>1727966405168</created>
+      <option name="number" value="00016" />
+      <option name="presentableId" value="LOCAL-00016" />
+      <option name="project" value="LOCAL" />
+      <updated>1727966405168</updated>
+    </task>
+    <task id="LOCAL-00017" summary="feat:added npm to the setup and turbo frames and turbo ux in general">
+      <option name="closed" value="true" />
+      <created>1728052815423</created>
+      <option name="number" value="00017" />
+      <option name="presentableId" value="LOCAL-00017" />
+      <option name="project" value="LOCAL" />
+      <updated>1728052815423</updated>
+    </task>
+    <task id="LOCAL-00018" summary="chore: trying to make the turbo frames work the way I want it">
+      <option name="closed" value="true" />
+      <created>1728054377113</created>
+      <option name="number" value="00018" />
+      <option name="presentableId" value="LOCAL-00018" />
+      <option name="project" value="LOCAL" />
+      <updated>1728054377113</updated>
+    </task>
+    <option name="localTasksCounter" value="19" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -283,6 +348,11 @@
     <MESSAGE value="Chore: New migration created and run" />
     <MESSAGE value="Feat: we can now successfully store the passwords" />
     <MESSAGE value="chore: updating the Password entity" />
-    <option name="LAST_COMMIT_MESSAGE" value="chore: updating the Password entity" />
+    <MESSAGE value="chore: Now its connected the password to the password individual page" />
+    <MESSAGE value="chore: Code clean up" />
+    <MESSAGE value="feat:started the file and directory to use an api to create the password" />
+    <MESSAGE value="feat:added npm to the setup and turbo frames and turbo ux in general" />
+    <MESSAGE value="chore: trying to make the turbo frames work the way I want it" />
+    <option name="LAST_COMMIT_MESSAGE" value="chore: trying to make the turbo frames work the way I want it" />
   </component>
 </project>
