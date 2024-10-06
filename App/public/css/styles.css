@@ -1,5 +1,4 @@
-#logout-button:hover {
-    color: red;
+.logout-button:hover {
     background-color: red;
-    transition: color 0.3s, background-color 0.3s;
+    transition: background-color 1s;
 }
