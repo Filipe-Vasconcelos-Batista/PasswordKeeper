@@ -23,30 +23,6 @@ class PasswordController extends AbstractController
             'passwords'=> $passwords
         ]);
     }
-    #[Route('/password/insert', name: 'app_password_insert')]
-    public function insert(Request $request,EntityManagerInterface $manager): Response
-    {
-        $password=new Password();
-        $formInsert= $this->createForm(PasswordType::class,$password);
-        $formInsert->handleRequest($request);
-        try{
-
-            if($formInsert->isSubmitted() && $formInsert->isValid()){
-                $password->setUser($this->getUser());
-
-                $manager->persist($password);
-                $manager->flush();
-
-                $this->addFlash('success', 'Password saved successfully!');
-                return $this->redirectToRoute('app_password_list');
-            }
-        }catch(\Exception $e){
-            $this->addFlash('error', $e->getMessage());
-        }
-        return $this->render('password/insert.html.twig', [
-            'form'=> $formInsert
-        ]);
-    }
     #[Route('/password/generate', name: 'app_password_generate')]
     public function generatePassword(Request $request, PasswordGeneratorService $passwordGeneratorService, EntityManagerInterface $manager): Response{
         $password=new Password();
