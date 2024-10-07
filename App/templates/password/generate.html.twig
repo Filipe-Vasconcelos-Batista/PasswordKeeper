@@ -3,13 +3,8 @@
 {% block title %}Generate Password{% endblock %}
 
 {% block body %}
+
     <h1>Insert your Password</h1>
-    {% if number %}
-    <p>{{ number }}</p>
-    {% endif %}
-    {% if special %}
-    <p>{{ special }}</p>
-    {% endif %}
     {{ form_start(form) }}
     {% if generatedPassword %}
         {{ form_row(form.password,{
@@ -38,7 +33,7 @@
         label: 'No Numbers'
     }) }}
     {{ form_row(generateform.specialk,{
-        label: 'No special Characteres'
+        label: 'No Special Characteres'
     }) }}
 
     {{ form_widget(generateform) }}

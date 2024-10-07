@@ -50,8 +50,6 @@ $numbers=null;
             $this->addFlash('error','Your password could not be generated', $e->getMessage());
         };
         return $this->render('password/generate.html.twig', [
-            'special'=>$special,
-            'number'=>$numbers,
             'generatedPassword'=> $generated,
             'form'=> $form,
             'generateform'=> $generateForm
