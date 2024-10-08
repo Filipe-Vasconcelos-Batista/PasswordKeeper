@@ -3,41 +3,80 @@
 {% block title %}Generate Password{% endblock %}
 
 {% block body %}
-
-    <h1>Insert your Password</h1>
-    {{ form_start(form) }}
-    {% if generatedPassword %}
-        {{ form_row(form.password,{
-            id:'title',
-            value: generatedPassword
-        }) }}
-    {% else %}
-    {{ form_row(form.password,{
-        id:'title',
-    }) }}
-    {% endif %}
-    {{ form_row(form.securityLevel) }}
-    {{ form_row(form.local) }}
-    {{ form_row(form.description) }}
-    <button type="submit">Save Password</button>
-    {{ form_end(form) }}
-
-    <h2>Or Generate a New Password</h2>
-    <p>this will also reset your security level/Local and description</p>
-
-    {{ form_start(generateform) }}
-    {{ form_row(generateform.length,{
-        label: 'Length'
-    }) }}
-    {{ form_row(generateform.numbers,{
-        label: 'No Numbers'
-    }) }}
-    {{ form_row(generateform.specialk,{
-        label: 'No Special Characteres'
-    }) }}
-
-    {{ form_widget(generateform) }}
-    <button type="submit">Generate Password</button>
-    {{ form_end(generateform) }}
+<div class="container">
+    <div class="mb-3">
+        <h2>Generate a Password</h2>
+        {% if generatedPassword %}
+        <p>This will also reset your security level/Local and description</p>
+        {% endif %}
+    </div>
+    <div class="row">
+            {{ form_start(generateform) }}
+        <div class="mb-3 col-auto">
+            <label class="form-label" for="length">Length</label>
+            {{ form_row(generateform.length,{
+                id:"length"
+            }) }}
+        </div>
+        <div class="mb-3 form-check col-auto">
+            {{ form_row(generateform.numbers,{
+                id: 'numbers'
+            }) }}
+            <label class="form-check-label" for="numbers">No Numbers</label>
+        </div>
+        <div class="mb-3 form-check col-auto">
+            {{ form_row(generateform.specialk,{
+                id:'special'
+            }) }}
+            <label class="form-check-label" for="special">No special Characters?</label>
+        </div>
+        <div class="mb3 col-auto">
+            <button type="submit" class="btn btn-outline-primary btn-lg">Generate Password</button>
+        </div>
+        {{ form_end(generateform) }}
+    </div>
+    <div>
+        <div class="mb-3">
+            {% if generatedPassword %}
+                <h1>Or insert an existing Password</h1>
+            {% endif %}
+        </div>
+        <div class="mb-3">
+            {{ form_start(form) }}
+            <label for="title" class="form-label">Password</label>
+            {% if generatedPassword %}
+                {{ form_row(form.password,{
+                    id:'title',
+                    value: generatedPassword
+                }) }}
+            {% else %}
+            {{ form_row(form.password,{
+                id:'title',
+            }) }}
+            {% endif %}
+        </div>
+        <div class="mb-3">
+            <label for="security" class="form-label">Security Level</label>
+            {{ form_row(form.securityLevel,{
+                id:'security'
+            }) }}
+        </div>
+        <div class="mb-3">
+            <label for="local" class="form-label">Where that password belongs</label>
+            {{ form_row(form.local,{
+                id:'local'
+            }) }}
+        </div>
+        <div class="mb-3">
+            <label for="description" class="form-label">Description of the password/local</label>
+            {{ form_row(form.description,{
+                id:'description'}) }}
+        </div>
+        <div class="mb-3">
+            <button type="submit" class=" btn btn-outline-primary btn-lg">Save Password</button>
+            {{ form_end(form) }}
+        </div>
+    </div>
+</div>
 {% endblock %}
 
