@@ -9,6 +9,7 @@ use Symfony\Component\Form\Extension\Core\Type\TextareaType;
 use Symfony\Component\Form\Extension\Core\Type\TextType;
 use Symfony\Component\Form\FormBuilderInterface;
 use Symfony\Component\OptionsResolver\OptionsResolver;
+use Symfony\Component\Validator\Constraints\NotBlank;
 
 class PasswordType extends AbstractType
 {
@@ -18,9 +19,14 @@ class PasswordType extends AbstractType
         $builder
             ->add('password', TextType::class,[
                 'label' => false,
+
                 'attr'=>[
                     'class'=>'form-control',
-                ]
+                ],
+                'constraints' => [
+                    new NotBlank([
+                        'message' => 'Please enter a password',
+        ])],
             ])
             ->add('securityLevel', ChoiceType::class,[
                 'label' => false,
@@ -37,7 +43,11 @@ class PasswordType extends AbstractType
                 'label' => false,
                 'attr'=>[
                     'class'=>'form-control',
-                ]
+                ],
+                'constraints' => [
+                    new NotBlank([
+                        'message' => 'Please enter a Title',
+                    ])],
             ])
             ->add('description',TextareaType::class,[
                 'label' => false,

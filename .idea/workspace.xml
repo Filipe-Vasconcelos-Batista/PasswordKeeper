@@ -4,12 +4,12 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="86291950-77e0-4282-b227-017133bf5869" name="Changes" comment="feat: we can now automatically generate a password with a specific number of chars and with or without specials and numbers">
+    <list default="true" id="86291950-77e0-4282-b227-017133bf5869" name="Changes" comment="feat: landing page is finished, simple and efective">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/App/config/packages/security.yaml" beforeDir="false" afterPath="$PROJECT_DIR$/App/config/packages/security.yaml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/App/public/css/styles.css" beforeDir="false" afterPath="$PROJECT_DIR$/App/public/css/styles.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/App/templates/base.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/App/templates/base.html.twig" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/App/templates/home_page/index.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/App/templates/home_page/index.html.twig" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/App/src/Form/PasswordType.php" beforeDir="false" afterPath="$PROJECT_DIR$/App/src/Form/PasswordType.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/App/templates/password/generate.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/App/templates/password/generate.html.twig" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/App/templates/password/index.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/App/templates/password/index.html.twig" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/App/templates/password/individual.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/App/templates/password/individual.html.twig" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -190,7 +190,8 @@
       <workItem from="1727965044720" duration="2332000" />
       <workItem from="1728048528867" duration="19798000" />
       <workItem from="1728303048124" duration="8172000" />
-      <workItem from="1728386792898" duration="5898000" />
+      <workItem from="1728386792898" duration="11572000" />
+      <workItem from="1728651982419" duration="2813000" />
     </task>
     <task id="LOCAL-00001" summary="feat:add password page">
       <option name="closed" value="true" />
@@ -344,7 +345,15 @@
       <option name="project" value="LOCAL" />
       <updated>1728090033956</updated>
     </task>
-    <option name="localTasksCounter" value="20" />
+    <task id="LOCAL-00020" summary="feat: landing page is finished, simple and efective">
+      <option name="closed" value="true" />
+      <created>1728393643926</created>
+      <option name="number" value="00020" />
+      <option name="presentableId" value="LOCAL-00020" />
+      <option name="project" value="LOCAL" />
+      <updated>1728393643927</updated>
+    </task>
+    <option name="localTasksCounter" value="21" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -373,6 +382,7 @@
     <MESSAGE value="feat:added npm to the setup and turbo frames and turbo ux in general" />
     <MESSAGE value="chore: trying to make the turbo frames work the way I want it" />
     <MESSAGE value="feat: we can now automatically generate a password with a specific number of chars and with or without specials and numbers" />
-    <option name="LAST_COMMIT_MESSAGE" value="feat: we can now automatically generate a password with a specific number of chars and with or without specials and numbers" />
+    <MESSAGE value="feat: landing page is finished, simple and efective" />
+    <option name="LAST_COMMIT_MESSAGE" value="feat: landing page is finished, simple and efective" />
   </component>
 </project>
