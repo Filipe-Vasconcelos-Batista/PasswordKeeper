@@ -16,6 +16,9 @@ class PasswordGenerateType extends AbstractType
     {
         $builder
             ->add('length', NumberType::class,[
+                'attr'=>[
+                    'class'=>"form-control",
+                ],
                 'label'=>false,
                 'constraints'=> [
                     new GreaterThan([
@@ -25,11 +28,19 @@ class PasswordGenerateType extends AbstractType
                 ]
             ])
             ->add('numbers', CheckboxType::class,[
+                'attr'=>[
+                    'class'=>"form-check-input",
+                    'type'=>"checkbox"
+                ],
                 'label'=> false,
                 'required'=> false,
                 'value'=>true,
             ])
             ->add('specialk', CheckboxType::class,[
+                'attr'=>[
+                    'class'=>"form-check-input",
+                    'type'=>"checkbox"
+                ],
                 'label'=> false,
                 'required'=> false,
                 'value'=>true,

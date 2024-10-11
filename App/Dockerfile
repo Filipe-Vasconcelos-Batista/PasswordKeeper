@@ -2,13 +2,6 @@ FROM phpstorm/php-apache:8.2-xdebug3.2
 ENV APACHE_DOCUMENT_ROOT=/var/www/html/public
 
 RUN apt-get update && apt-get -y install libzip-dev libicu-dev
-RUN curl -fsSL https://deb.nodesource.com/setup_14.x | bash -
-RUN apt-get install -y nodejs npm
-
-RUN node -v
-RUN npm -v
-
-RUN npm install -g yarn
 
 RUN docker-php-ext-install pdo pdo_mysql zip mysqli
 RUN docker-php-ext-enable pdo pdo_mysql zip mysqli
@@ -21,4 +14,3 @@ COPY my-httpd.conf /etc/apache2/sites-available/
 RUN a2enmod rewrite
 
 WORKDIR /var/www/html
-RUN yarn install

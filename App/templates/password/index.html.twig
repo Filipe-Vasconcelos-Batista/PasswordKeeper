@@ -3,33 +3,39 @@
 {% block title %}Passwords{% endblock %}
 
 {% block body %}
-    {% if passwords %}
-        <div>
-            <div>
-                <h1>Your Passwords </h1>
-            </div>
+    <div class="container">
+        {% if passwords %}
             <div>
                 <div>
-                    <table>
-                        <thead>
-                        <tr>
-                            <th>Local</th>
-                            <th>Level</th>
-                        </tr>
-                        </thead>
-                        <tbody>
-                            {% for password in passwords %}
-                                <tr>
-                                    <td><a href="{{ path('app_password_personal',{ 'id':password.id}) }}">{{ password.local }}</a></td>
-                                    <td>{{ password.password }}</td>
-                                </tr>
-                            {% endfor %}
-                        </tbody>
-                    </table>
+                    <h1>Your Passwords </h1>
+                </div>
+                <div>
+                    <div>
+                        <table class="table">
+                            <thead>
+                            <tr>
+                                <th scope="col">Title</th>
+                                <th scope="col">Password</th>
+                                <th scope="col">Copy</th>
+                                <th scope="col">Delete</th>
+                            </tr>
+                            </thead>
+                            <tbody>
+                                {% for password in passwords %}
+                                    <tr>
+                                        <td><a href="{{ path('app_password_personal',{ 'id':password.id}) }}">{{ password.local }}</a></td>
+                                        <td>{{ password.password }}</td>
+                                        <td><button type="button" class="btn btn-primary">Copy</button></td>
+                                        <td><button type="button" class="btn btn-danger">Delete</button> </td>
+                                    </tr>
+                                {% endfor %}
+                            </tbody>
+                        </table>
+                    </div>
                 </div>
             </div>
-        </div>
-    {% else %}
-        <h1>There are no passwords saved</h1>
-    {% endif %}
+        {% else %}
+            <h2>There are no passwords saved</h2>
+        {% endif %}
+    </div>
 {% endblock %}

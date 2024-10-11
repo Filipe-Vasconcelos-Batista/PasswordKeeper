@@ -1,0 +1,16 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Bank of Keys{% endblock %}
+
+
+{% block body %}
+
+<div class=" cover cover-container d-flex  p-3 mx-auto flex-column text-shadow justify-content-center align-items-center">
+        <h3 class="home-text home-text-padding">A one of a kind password Service</h3>
+        <h1 class="home-text home-text-padding">Password Keeper</h1>
+        <p class="home-text home-paragraf-text home-text-padding">Tired of having you password written down in paper?</p>
+        <p class="home-text home-paragraf-text">Tired of big tech having access to your data?</p>
+        <p class="home-text home-paragraf-text"><a class="btn btn-outline-info" href="https://github.com/Filipe-Vasconcelos-Batista/PasswordKeeper/blob/main/README.md">Download and build it in your Home network</a></p>
+        <p class="home-text home-paragraf-text"><a class="btn btn-outline-info" href="{{ path('app_register') }}">Or make an account and join us</a></p>
+</div>
+{% endblock %}

@@ -3,29 +3,33 @@
 {% block title %}Hello LoginController!{% endblock %}
 
 {% block body %}
-    <div class="">
-        <div class="">
+    <div class="container mt-5">
+        <div class="row justify-content-center">
             {% if error %}
-                <div class="" role="alert" id="errorBox">
+                <div class="alert alert-danger mt-3" role="alert" id="errorBox">
                     {{ error.messageKey|trans(error.messageData, 'security') }}
                 </div>
             {% endif %}
-            <div class="">
-                <div class="">
-                    <div class="">Login</div>
-                    <div class="">
+            <div class="col-md-6">
+                <div class="card">
+                    <div class="card-header text-center">Login</div>
+                    <div class="card-body">
                         <form action="{{ path('app_login') }}" method="post">
-                            <div class="">
-                                <label for="" class="">Username</label>
-                                <input type="text" class="" id="username" name="_username" value="{{ last_username }}">
+                            <div class="mb-3">
+                                <label for="email" class="form-label">Email</label>
+                                <input type="text" class="form-control" id="email" name="_username" value="{{ last_username }}">
                             </div>
                             <div class="mb-3">
-                                <label for="password" class="">Password</label>
-                                <input type="password" class="" id="password" name="_password">
+                                <label for="password" class="form-label">Password</label>
+                                <input type="password" class="form-control" id="password" name="_password">
                             </div>
-                            <button type="submit" class="">Login</button>
+                            <div class="mb-3 d-grid col-6  mx-auto">
+                                <button type="submit" class=" btn btn-outline-primary btn-lg">Login</button>
+                            </div>
                         </form>
-                        have no account? <a href="{{ path('app_register') }}">register here</a>
+                        <div class="mb-3">
+                            <h6 class="text-center">No account? <a href="{{ path('app_register') }}">register here</a></h6>
+                        </div>
                     </div>
                 </div>
             </div>
