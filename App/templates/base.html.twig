@@ -42,7 +42,9 @@
                 <li class="nav-item">
                     <a class="nav-link {% if app.request.attributes.get('_route') == 'app_register' %}active{% endif %}" href="{{ path('app_register') }}">Register</a>
                 </li>
-            </ul>
+            </ul><div id="message-container">
+    <!-- Messages will be dynamically inserted here -->
+</div>
         {% endif %}
         <div class="">
             {% for message in app.flashes('success') %}
@@ -55,8 +57,13 @@
                     {{ message }}
                 </div>
             {% endfor %}
-            {% block body %}{% endblock %}
+            <div class="text-center mt-3" id="clipboard">
+                <!-- Messages will be dynamically inserted here -->
+            </div>
+            {% block body %}
+            {% endblock %}
         </div>
         <script src="{{ asset('build/app.js') }}"></script>
+        <script src="{{ asset('js/clipboard.js') }}"></script>
     </body>
 </html>
