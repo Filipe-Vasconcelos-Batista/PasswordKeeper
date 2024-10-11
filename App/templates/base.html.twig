@@ -42,9 +42,7 @@
                 <li class="nav-item">
                     <a class="nav-link {% if app.request.attributes.get('_route') == 'app_register' %}active{% endif %}" href="{{ path('app_register') }}">Register</a>
                 </li>
-            </ul><div id="message-container">
-    <!-- Messages will be dynamically inserted here -->
-</div>
+            </ul>
         {% endif %}
         <div class="">
             {% for message in app.flashes('success') %}
