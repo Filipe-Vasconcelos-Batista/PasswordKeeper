@@ -5,8 +5,10 @@ namespace App\Entity;
 use App\Repository\PasswordRepository;
 use Doctrine\DBAL\Types\Types;
 use Doctrine\ORM\Mapping as ORM;
+use Doctrine\ORM\Mapping\HasLifecycleCallbacks;
 
 #[ORM\Entity(repositoryClass: PasswordRepository::class)]
+#[HasLifecycleCallbacks]
 class Password
 {
     #[ORM\Id]
@@ -103,29 +105,21 @@ class Password
     {
         return $this->createdAt;
     }
-    public function setCreatedAt(\DateTimeInterface $createdAt): static
-    {
-        $this->createdAt = $createdAt;
-        return $this;
-    }
     public function getLastModifiedAt(): ?\DateTimeInterface
     {
         return $this->lastModifiedAt;
     }
-    public function setLastModifiedAt(?\DateTimeInterface $lastModifiedAt): static
-    {
-        $this->lastModifiedAt = $lastModifiedAt;
-        return $this;
-    }
+
 
     #[ORM\PrePersist]
-public function setCreatedAtValue(): void
+    public function setCreatedAtValue(): void
     {
-        $this->createdAt = new \DateTime();
+        $this->createdAt = new \DateTimeImmutable();
+        $this->setLastModifiedAtValue();
     }
     #[ORM\PreUpdate]
-public function setLastModifiedAtValue(): void
+    public function setLastModifiedAtValue(): void
     {
-        $this->lastModifiedAt = new \DateTime();
+        $this->lastModifiedAt = new \DateTimeImmutable();
     }
 }

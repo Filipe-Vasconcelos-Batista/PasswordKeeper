@@ -42,7 +42,7 @@ class User implements UserInterface, PasswordAuthenticatedUserInterface
     #[ORM\OneToMany(targetEntity: Password::class, mappedBy: 'user', orphanRemoval: true)]
     private Collection $passwords;
 
-    #[ORM\OneToOne(mappedBy: 'UserId', cascade: ['persist', 'remove'])]
+    #[ORM\OneToOne(mappedBy: 'user', cascade: ['persist', 'remove'])]
     private ?PinCode $pinCode = null;
 
     public function __construct()

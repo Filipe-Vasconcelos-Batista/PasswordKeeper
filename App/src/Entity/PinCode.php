@@ -14,10 +14,10 @@ class PinCode
     private ?int $id = null;
 
     #[ORM\OneToOne(inversedBy: 'pinCode', cascade: ['persist', 'remove'])]
-    #[ORM\JoinColumn(nullable: false)]
+    #[ORM\JoinColumn(nullable: true)]
     private ?User $user = null;
 
-    #[ORM\Column(type: 'string', length: 255)]
+    #[ORM\Column(type: 'string', length: 255, nullable: true)]
     private ?string $hashedPincode = null;
 
     public function getId(): ?int
