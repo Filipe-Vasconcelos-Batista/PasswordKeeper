@@ -1,27 +1,43 @@
 {% extends 'base.html.twig' %}
 
-{% block title %}Password Individualocker comp{% endblock %}
+{% block title %}Individual Password{% endblock %}
 
 {% block body %}
-         <div>
+         <div class="container">
             <div>
                 <h1>{{ password.local }}</h1>
             </div>
             <div>
                 <div>
-                    <table>
+                    <table class="table mb-3">
                         <thead>
                         <tr>
-                            <th>Password</th>
-                            <th>Level</th>
-                            <th>Description</th>
+                            <th scope="col">Title</th>
+                            <th scope="col">Level</th>
+                            <th scope="col">Description</th>
+                            <th scope="col">Password</th>
+                            <th scope="col">Copy</th>
+                            <th scope="col">Edit</th>
+                            <th scope="col">Delete</th>
                         </tr>
                         </thead>
                         <tbody>
                             <tr>
-                                <td>{{ password.password }}</td>
+                                <th scope="row">{{ password.local }}</th>
                                 <td>{{ password.securityLevel }}</td>
                                 <td>{{ password.description }}</td>
+                                <td>{{ password.password }}</td>
+                                <td><button type="button" class="btn btn-primary" onclick="copyToClipboard('{{ password.password }}')">Copy</button></td>
+                                    <td>
+                                        <form action="{{ path('app_password_edit',{'id':password.id}) }}">
+                                            <button type="submit" class="btn btn-success">Edit</button>
+                                        </form>
+                                    </td>
+                                    <td>
+                                        <form action="{{ path('app_password_delete',{'id':password.id}) }}">
+                                            <button type="submit" class="btn btn-danger">Delete</button>
+                                        </form>
+                                    </td>
                             </tr>
                         </tbody>
                     </table>
