@@ -25,8 +25,13 @@
                                     <tr>
                                         <td><a href="{{ path('app_password_personal',{ 'id':password.id}) }}">{{ password.local }}</a></td>
                                         <td>{{ password.password }}</td>
-                                        <td><button type="button" class="btn btn-primary">Copy</button></td>
-                                        <td><button type="button" class="btn btn-danger">Delete</button> </td>
+                                        <td><button type="button" onclick="copyToClipboard('{{ password.password }}')" class="btn btn-primary">Copy</button></td>
+
+                                        <td>
+                                            <form action="{{ path('app_password_delete',{'id':password.id}) }}">
+                                                <button type="submit" class="btn btn-danger">Delete</button>
+                                            </form>
+                                        </td>
                                     </tr>
                                 {% endfor %}
                             </tbody>

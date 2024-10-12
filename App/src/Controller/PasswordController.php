@@ -99,9 +99,19 @@ class PasswordController extends AbstractController
             'password'=> $password
         ]);
     }
+    #[Route('password/delete/{id}', name: 'app_password_delete')]
+    public function deletePassword(EntityManagerInterface $manager, int $id): Response
+    {
+        $password=$manager->getRepository(Password::class)->findOneBy(['id'=> $id]);
+        $this->checkUser($password);
+        $manager->remove($password);
+        $manager->flush();
+        return $this->redirectToRoute('app_password_list');
+    }
+
     private function checkUser(Password $password){
         if($password->getUser() !== $this->getUser()){
-            throw new AccessDeniedException('Ups seems that you cannot see this.');
+            throw new AccessDeniedException('Ups seems that you cannot touch this.');
         }
     }
 }
