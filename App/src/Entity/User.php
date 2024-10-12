@@ -42,6 +42,9 @@ class User implements UserInterface, PasswordAuthenticatedUserInterface
     #[ORM\OneToMany(targetEntity: Password::class, mappedBy: 'user', orphanRemoval: true)]
     private Collection $passwords;
 
+    #[ORM\OneToOne(mappedBy: 'UserId', cascade: ['persist', 'remove'])]
+    private ?PinCode $pinCode = null;
+
     public function __construct()
     {
         $this->passwords = new ArrayCollection();
@@ -149,6 +152,23 @@ class User implements UserInterface, PasswordAuthenticatedUserInterface
                 $password->setUser(null);
             }
         }
+
+        return $this;
+    }
+
+    public function getPinCode(): ?PinCode
+    {
+        return $this->pinCode;
+    }
+
+    public function setPinCode(PinCode $pinCode): static
+    {
+        // set the owning side of the relation if necessary
+        if ($pinCode->getUserId() !== $this) {
+            $pinCode->setUserId($this);
+        }
+
+        $this->pinCode = $pinCode;
 
         return $this;
     }

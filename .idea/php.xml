@@ -89,6 +89,10 @@
       <path value="$PROJECT_DIR$/App/vendor/symfony/http-client" />
       <path value="$PROJECT_DIR$/App/vendor/symfony/stimulus-bundle" />
       <path value="$PROJECT_DIR$/App/vendor/symfony/ux-turbo" />
+      <path value="$PROJECT_DIR$/App/vendor/symfony/polyfill-intl-idn" />
+      <path value="$PROJECT_DIR$/App/vendor/symfony/mailer" />
+      <path value="$PROJECT_DIR$/App/vendor/symfony/mime" />
+      <path value="$PROJECT_DIR$/App/vendor/egulias/email-validator" />
     </include_path>
   </component>
   <component name="PhpProjectSharedConfiguration" php_language_level="8.2" />
