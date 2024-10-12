@@ -30,6 +30,12 @@ class Password
     #[ORM\Column(length: 255)]
     private ?string $securityLevel = 'low';
 
+    #[ORM\Column(type: Types::DATETIME_MUTABLE)]
+    private ?\DateTimeInterface $createdAt = null;
+
+    #[ORM\Column(type: Types::DATETIME_MUTABLE)]
+    private ?\DateTimeInterface $lastModifiedAt = null;
+
 
     public function getId(): ?int
     {
@@ -92,5 +98,34 @@ class Password
         $this->securityLevel = $currentLevel;
 
         return $this;
+    }
+    public function getCreatedAt(): ?\DateTimeInterface
+    {
+        return $this->createdAt;
+    }
+    public function setCreatedAt(\DateTimeInterface $createdAt): static
+    {
+        $this->createdAt = $createdAt;
+        return $this;
+    }
+    public function getLastModifiedAt(): ?\DateTimeInterface
+    {
+        return $this->lastModifiedAt;
+    }
+    public function setLastModifiedAt(?\DateTimeInterface $lastModifiedAt): static
+    {
+        $this->lastModifiedAt = $lastModifiedAt;
+        return $this;
+    }
+
+    #[ORM\PrePersist]
+public function setCreatedAtValue(): void
+    {
+        $this->createdAt = new \DateTime();
+    }
+    #[ORM\PreUpdate]
+public function setLastModifiedAtValue(): void
+    {
+        $this->lastModifiedAt = new \DateTime();
     }
 }
