@@ -28,8 +28,12 @@
                                 <td>{{ password.description }}</td>
                                 <td>{{ password.password }}</td>
                                 <td><button type="button" class="btn btn-primary" onclick="copyToClipboard('{{ password.password }}')">Copy</button></td>
-                                <td><button type="button" class="btn btn-success">Edit</button></td>
-                                <td><button type="button" class="btn btn-danger">Delete</button> </td>
+                                    <td>
+                                        <form action="{{ path('app_password_edit',{'id':password.id}) }}">
+                                            <button type="submit" class="btn btn-success">Edit</button>
+                                        </form>
+                                    </td>
+                                    <td><button type="button" class="btn btn-danger">Delete</button> </td>
                             </tr>
                         </tbody>
                     </table>
