@@ -15,36 +15,36 @@ class PinCode
 
     #[ORM\OneToOne(inversedBy: 'pinCode', cascade: ['persist', 'remove'])]
     #[ORM\JoinColumn(nullable: false)]
-    private ?User $UserId = null;
+    private ?User $user = null;
 
-    #[ORM\Column(length: 4)]
-    private ?string $pincode = null;
+    #[ORM\Column(type: 'string', length: 255)]
+    private ?string $hashedPincode = null;
 
     public function getId(): ?int
     {
         return $this->id;
     }
 
-    public function getUserId(): ?User
+    public function getUser(): ?User
     {
-        return $this->UserId;
+        return $this->user;
     }
 
-    public function setUserId(User $UserId): static
+    public function setUser(User $user): static
     {
-        $this->UserId = $UserId;
+        $this->user = $user;
 
         return $this;
     }
 
-    public function getPincode(): ?string
+    public function getHashedPincode(): ?string
     {
-        return $this->pincode;
+        return $this->hashedPincode;
     }
 
-    public function setPincode(string $pincode): static
+    public function setHashedPincode(string $hashedPincode): static
     {
-        $this->pincode = $pincode;
+        $this->hashedPincode = $hashedPincode;
 
         return $this;
     }
