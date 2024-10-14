@@ -93,6 +93,7 @@
       <path value="$PROJECT_DIR$/App/vendor/symfony/mailer" />
       <path value="$PROJECT_DIR$/App/vendor/symfony/mime" />
       <path value="$PROJECT_DIR$/App/vendor/egulias/email-validator" />
+      <path value="$PROJECT_DIR$/App/vendor/symfonycasts/reset-password-bundle" />
     </include_path>
   </component>
   <component name="PhpProjectSharedConfiguration" php_language_level="8.2" />

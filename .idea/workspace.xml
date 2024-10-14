@@ -4,12 +4,16 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="86291950-77e0-4282-b227-017133bf5869" name="Changes" comment="bug:made the created and updated at field in the password entity actually work on the database">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/App/config/packages/security.yaml" beforeDir="false" afterPath="$PROJECT_DIR$/App/config/packages/security.yaml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/App/src/Controller/LoginController.php" beforeDir="false" afterPath="$PROJECT_DIR$/App/src/Controller/LoginController.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/App/src/Controller/PasswordController.php" beforeDir="false" afterPath="$PROJECT_DIR$/App/src/Controller/PasswordController.php" afterDir="false" />
+    <list default="true" id="86291950-77e0-4282-b227-017133bf5869" name="Changes" comment="chore: made it check the pincode once the user logins, if the user does not have  a pincode it will be sent to the insert pincode page">
+      <change beforePath="$PROJECT_DIR$/App/composer.json" beforeDir="false" afterPath="$PROJECT_DIR$/App/composer.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/App/composer.lock" beforeDir="false" afterPath="$PROJECT_DIR$/App/composer.lock" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/App/config/bundles.php" beforeDir="false" afterPath="$PROJECT_DIR$/App/config/bundles.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/App/src/Controller/PincodeController.php" beforeDir="false" afterPath="$PROJECT_DIR$/App/src/Controller/PincodeController.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/App/src/Entity/PinCode.php" beforeDir="false" afterPath="$PROJECT_DIR$/App/src/Entity/PinCode.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/App/src/Form/PincodeType.php" beforeDir="false" afterPath="$PROJECT_DIR$/App/src/Form/PincodeType.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/App/src/Service/PincodeService.php" beforeDir="false" afterPath="$PROJECT_DIR$/App/src/Service/PincodeService.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/App/symfony.lock" beforeDir="false" afterPath="$PROJECT_DIR$/App/symfony.lock" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/App/templates/base.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/App/templates/base.html.twig" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/App/templates/pincode/index.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/App/templates/pincode/index.html.twig" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -137,6 +141,7 @@
       <path value="$PROJECT_DIR$/App/vendor/symfony/mailer" />
       <path value="$PROJECT_DIR$/App/vendor/symfony/mime" />
       <path value="$PROJECT_DIR$/App/vendor/egulias/email-validator" />
+      <path value="$PROJECT_DIR$/App/vendor/symfonycasts/reset-password-bundle" />
     </include_path>
   </component>
   <component name="ProjectColorInfo">{
@@ -199,7 +204,7 @@
       <workItem from="1728651982419" duration="2813000" />
       <workItem from="1728772337106" duration="3531000" />
       <workItem from="1728905184839" duration="6864000" />
-      <workItem from="1728912261895" duration="385000" />
+      <workItem from="1728912261895" duration="4831000" />
     </task>
     <task id="LOCAL-00001" summary="feat:add password page">
       <option name="closed" value="true" />
@@ -385,7 +390,15 @@
       <option name="project" value="LOCAL" />
       <updated>1728775626427</updated>
     </task>
-    <option name="localTasksCounter" value="24" />
+    <task id="LOCAL-00024" summary="chore: made it check the pincode once the user logins, if the user does not have  a pincode it will be sent to the insert pincode page">
+      <option name="closed" value="true" />
+      <created>1728912704904</created>
+      <option name="number" value="00024" />
+      <option name="presentableId" value="LOCAL-00024" />
+      <option name="project" value="LOCAL" />
+      <updated>1728912704904</updated>
+    </task>
+    <option name="localTasksCounter" value="25" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -429,6 +442,7 @@
     <MESSAGE value="feat: We have a Pincode entity and service" />
     <MESSAGE value="bug: Emended the pinCode entity" />
     <MESSAGE value="bug:made the created and updated at field in the password entity actually work on the database" />
-    <option name="LAST_COMMIT_MESSAGE" value="bug:made the created and updated at field in the password entity actually work on the database" />
+    <MESSAGE value="chore: made it check the pincode once the user logins, if the user does not have  a pincode it will be sent to the insert pincode page" />
+    <option name="LAST_COMMIT_MESSAGE" value="chore: made it check the pincode once the user logins, if the user does not have  a pincode it will be sent to the insert pincode page" />
   </component>
 </project>

@@ -15,6 +15,9 @@
         <Configuration>
           <option name="path" value="$PROJECT_DIR$/App/tests" />
         </Configuration>
+        <Configuration>
+          <option name="path" value="$PROJECT_DIR$/App/tests" />
+        </Configuration>
       </list>
     </option>
   </component>
