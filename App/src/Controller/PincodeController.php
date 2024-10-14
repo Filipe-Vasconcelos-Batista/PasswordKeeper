@@ -5,7 +5,9 @@ namespace App\Controller;
 use App\Entity\PinCode;
 use App\Form\PincodeType;
 use Doctrine\ORM\EntityManagerInterface;
+use http\Exception\BadConversionException;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
+use Symfony\Component\HttpFoundation\RedirectResponse;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Attribute\Route;
@@ -18,11 +20,18 @@ class PincodeController extends AbstractController
 
         $form=$this->createForm(PincodeType::class);
         $form->handleRequest($request);
-        $pincode=new Pincode();
+
+        $user=$this->getUser();
+        $pinCode=$manager->getRepository(PinCode::class)->findOneBy(['user'=>$user]);
+        if(!$pinCode){
+            $pinCode=new PinCode();
+            $pinCode->setUser($user);
+        }
         if($form->isSubmitted() && $form->isValid()){
             try{
-                $pincode->setUser($this->getUser());
-                $manager->persist($pincode);
+                $manager->persist($pinCode);
+                $manager->flush();
+                $this->addFlash('success', "Pincode added successfully");
             }catch (\Exception $e){
                 $this->addFlash('error','Pincode cannot be saved', $e->getMessage());
             }

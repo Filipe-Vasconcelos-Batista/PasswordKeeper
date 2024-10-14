@@ -3,6 +3,7 @@
 namespace App\Controller;
 
 use App\Entity\Password;
+use App\Entity\PinCode;
 use App\Form\PasswordGenerateType;
 use App\Form\PasswordType;
 use App\Service\PasswordGeneratorService;
@@ -18,6 +19,7 @@ class PasswordController extends AbstractController
     #[Route('/password', name: 'app_password_list')]
     public function index(EntityManagerInterface $manager): Response
     {
+        $this->checkPinCode($manager);
         $user=$this->getUser();
         $passwords=$manager->getRepository(Password::class)->findBy(['user'=>$user]);
         return $this->render('password/index.html.twig', [
@@ -113,5 +115,14 @@ class PasswordController extends AbstractController
         if($password->getUser() !== $this->getUser()){
             throw new AccessDeniedException('Ups seems that you cannot touch this.');
         }
+    }
+    private function checkPinCode(EntityManagerInterface $manager): void{
+        $user=$this->getUser();
+        $pinCode= $manager->getRepository(PinCode::class)->findOneBy(['user'=>$user]);
+        if(!$pinCode){
+            $this->redirectToRoute('app_pincode')->send();
+            exit;
+        }
+
     }
 }
