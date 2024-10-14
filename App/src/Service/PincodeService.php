@@ -3,6 +3,7 @@
 namespace App\Service;
 
 use Symfony\Component\PasswordHasher\Hasher\UserPasswordHasherInterface;
+use Symfony\Component\Security\Core\User\PasswordAuthenticatedUserInterface;
 
 class PincodeService
 {
@@ -15,9 +16,5 @@ class PincodeService
     public function generatePincode():string
     {
         return str_pad(random_int(0, 999999), 6, '0', STR_PAD_LEFT);
-    }
-    public function hashPincode(string $pincode):string
-    {
-        return $this->passwordHasher->hashPassword(new class{}, $pincode);
     }
 }

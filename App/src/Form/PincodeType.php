@@ -16,9 +16,12 @@ class PincodeType extends AbstractType
     {
         $builder
             ->add('pincode',NumberType::class,[
+                'label'=>false,
+                'mapped'=>false,
                 'attr'=>[
                     'maxlength'=>4,
                     'minlength'=>4,
+                    'class'=>'form-control',
                 ]
             ])
         ;

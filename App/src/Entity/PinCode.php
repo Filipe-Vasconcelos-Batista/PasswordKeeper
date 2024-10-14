@@ -4,6 +4,7 @@ namespace App\Entity;
 
 use App\Repository\PinCodeRepository;
 use Doctrine\ORM\Mapping as ORM;
+use Symfony\Component\PasswordHasher\Hasher\UserPasswordHasherInterface;
 
 #[ORM\Entity(repositoryClass: PinCodeRepository::class)]
 class PinCode
