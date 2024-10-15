@@ -30,7 +30,7 @@ class Password
     private ?User $user = null;
 
     #[ORM\Column(length: 255)]
-    private ?string $securityLevel = 'low';
+    private ?string $securityLevel;
 
     #[ORM\Column(type: Types::DATETIME_MUTABLE)]
     private ?\DateTimeInterface $createdAt = null;

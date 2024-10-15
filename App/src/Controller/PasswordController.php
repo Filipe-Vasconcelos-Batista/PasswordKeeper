@@ -13,17 +13,20 @@ use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Attribute\Route;
 use Symfony\Component\Security\Core\Exception\AccessDeniedException;
+use Symfony\Contracts\Cache\CacheInterface;
 
 class PasswordController extends AbstractController
 {
     #[Route('/password', name: 'app_password_list')]
-    public function index(EntityManagerInterface $manager): Response
+    public function index(EntityManagerInterface $manager,CacheInterface $cache): Response
     {
         $this->checkPinCode($manager);
         $user=$this->getUser();
         $passwords=$manager->getRepository(Password::class)->findBy(['user'=>$user]);
+        $midAuth=$this->checkMidAuth($cache);
         return $this->render('password/index.html.twig', [
-            'passwords'=> $passwords
+            'passwords'=> $passwords,
+            'midAuth'=>$midAuth,
         ]);
     }
     #[Route('/password/generate', name: 'app_password_generate')]
@@ -123,6 +126,11 @@ class PasswordController extends AbstractController
             $this->redirectToRoute('app_pincode')->send();
             exit;
         }
+    }
+    private function checkMidAuth(CacheInterface $cache): bool{
+        $cacheItem= $cache->getItem('user_' . $this->getUser()->getId());
+        $cacheData=$cacheItem->isHit() ? $cacheItem->get() : false;
+        return isset($cacheData['midauth']) && $cacheData['midauth']===true;
 
     }
 }

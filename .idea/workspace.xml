@@ -4,17 +4,11 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="86291950-77e0-4282-b227-017133bf5869" name="Changes" comment="chore: made it check the pincode once the user logins, if the user does not have  a pincode it will be sent to the insert pincode page">
-      <change beforePath="$PROJECT_DIR$/App/composer.json" beforeDir="false" afterPath="$PROJECT_DIR$/App/composer.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/App/composer.lock" beforeDir="false" afterPath="$PROJECT_DIR$/App/composer.lock" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/App/config/bundles.php" beforeDir="false" afterPath="$PROJECT_DIR$/App/config/bundles.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/App/src/Controller/PincodeController.php" beforeDir="false" afterPath="$PROJECT_DIR$/App/src/Controller/PincodeController.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/App/src/Entity/PinCode.php" beforeDir="false" afterPath="$PROJECT_DIR$/App/src/Entity/PinCode.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/App/src/Form/PincodeType.php" beforeDir="false" afterPath="$PROJECT_DIR$/App/src/Form/PincodeType.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/App/src/Service/PincodeService.php" beforeDir="false" afterPath="$PROJECT_DIR$/App/src/Service/PincodeService.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/App/symfony.lock" beforeDir="false" afterPath="$PROJECT_DIR$/App/symfony.lock" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/App/templates/base.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/App/templates/base.html.twig" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/App/templates/pincode/index.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/App/templates/pincode/index.html.twig" afterDir="false" />
+    <list default="true" id="86291950-77e0-4282-b227-017133bf5869" name="Changes" comment="feat: We can now compare pincodes (it still does nothing)">
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/App/src/Controller/PasswordController.php" beforeDir="false" afterPath="$PROJECT_DIR$/App/src/Controller/PasswordController.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/App/src/Entity/Password.php" beforeDir="false" afterPath="$PROJECT_DIR$/App/src/Entity/Password.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/App/templates/password/index.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/App/templates/password/index.html.twig" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -152,26 +146,26 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent">{
-  &quot;keyToString&quot;: {
-    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
-    &quot;git-widget-placeholder&quot;: &quot;18-lets-make-the-diferent-levels-of-security-behave-diferently&quot;,
-    &quot;ignore.virus.scanning.warn.message&quot;: &quot;true&quot;,
-    &quot;last_opened_file_path&quot;: &quot;/home/filifil/PhpstormProjects/PasswordKeeper/App/public/images&quot;,
-    &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
-    &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
-    &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
-    &quot;node.js.selected.package.tslint&quot;: &quot;(autodetect)&quot;,
-    &quot;nodejs_package_manager_path&quot;: &quot;npm&quot;,
-    &quot;ts.external.directory.path&quot;: &quot;/home/filifil/Transferências/PhpStorm-241.14494.237/plugins/javascript-impl/jsLanguageServicesImpl/external&quot;,
-    &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
+  <component name="PropertiesComponent"><![CDATA[{
+  "keyToString": {
+    "RunOnceActivity.ShowReadmeOnStart": "true",
+    "git-widget-placeholder": "18-lets-make-the-diferent-levels-of-security-behave-diferently",
+    "ignore.virus.scanning.warn.message": "true",
+    "last_opened_file_path": "/home/filifil/PhpstormProjects/SmartCellar",
+    "node.js.detected.package.eslint": "true",
+    "node.js.detected.package.tslint": "true",
+    "node.js.selected.package.eslint": "(autodetect)",
+    "node.js.selected.package.tslint": "(autodetect)",
+    "nodejs_package_manager_path": "npm",
+    "ts.external.directory.path": "/home/filifil/Transferências/PhpStorm-241.14494.237/plugins/javascript-impl/jsLanguageServicesImpl/external",
+    "vue.rearranger.settings.migration": "true"
   },
-  &quot;keyToStringList&quot;: {
-    &quot;DatabaseDriversLRU&quot;: [
-      &quot;mysql&quot;
+  "keyToStringList": {
+    "DatabaseDriversLRU": [
+      "mysql"
     ]
   }
-}</component>
+}]]></component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
       <recent name="$PROJECT_DIR$/App/public/images" />
@@ -204,7 +198,7 @@
       <workItem from="1728651982419" duration="2813000" />
       <workItem from="1728772337106" duration="3531000" />
       <workItem from="1728905184839" duration="6864000" />
-      <workItem from="1728912261895" duration="4831000" />
+      <workItem from="1728912261895" duration="16916000" />
     </task>
     <task id="LOCAL-00001" summary="feat:add password page">
       <option name="closed" value="true" />
@@ -398,7 +392,31 @@
       <option name="project" value="LOCAL" />
       <updated>1728912704904</updated>
     </task>
-    <option name="localTasksCounter" value="25" />
+    <task id="LOCAL-00025" summary="feat: Login password retrieval can now be done by the user">
+      <option name="closed" value="true" />
+      <created>1728917189948</created>
+      <option name="number" value="00025" />
+      <option name="presentableId" value="LOCAL-00025" />
+      <option name="project" value="LOCAL" />
+      <updated>1728917189948</updated>
+    </task>
+    <task id="LOCAL-00026" summary="feat: Login password retrieval can now be done by the user">
+      <option name="closed" value="true" />
+      <created>1728917399218</created>
+      <option name="number" value="00026" />
+      <option name="presentableId" value="LOCAL-00026" />
+      <option name="project" value="LOCAL" />
+      <updated>1728917399218</updated>
+    </task>
+    <task id="LOCAL-00027" summary="feat: We can now compare pincodes (it still does nothing)">
+      <option name="closed" value="true" />
+      <created>1728988342339</created>
+      <option name="number" value="00027" />
+      <option name="presentableId" value="LOCAL-00027" />
+      <option name="project" value="LOCAL" />
+      <updated>1728988342339</updated>
+    </task>
+    <option name="localTasksCounter" value="28" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -419,8 +437,6 @@
     </option>
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="feat:add password page" />
-    <MESSAGE value="docs:added gitignore" />
     <MESSAGE value="feat:now we have a register and a login page" />
     <MESSAGE value="fix:login page double labels" />
     <MESSAGE value="feat: we now have a insert password controller function" />
@@ -443,6 +459,9 @@
     <MESSAGE value="bug: Emended the pinCode entity" />
     <MESSAGE value="bug:made the created and updated at field in the password entity actually work on the database" />
     <MESSAGE value="chore: made it check the pincode once the user logins, if the user does not have  a pincode it will be sent to the insert pincode page" />
-    <option name="LAST_COMMIT_MESSAGE" value="chore: made it check the pincode once the user logins, if the user does not have  a pincode it will be sent to the insert pincode page" />
+    <MESSAGE value="chore: pincode can now be hashed before saved" />
+    <MESSAGE value="feat: Login password retrieval can now be done by the user" />
+    <MESSAGE value="feat: We can now compare pincodes (it still does nothing)" />
+    <option name="LAST_COMMIT_MESSAGE" value="feat: We can now compare pincodes (it still does nothing)" />
   </component>
 </project>
