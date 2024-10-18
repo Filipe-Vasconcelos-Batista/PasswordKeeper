@@ -14,3 +14,5 @@ COPY my-httpd.conf /etc/apache2/sites-available/
 RUN a2enmod rewrite
 
 WORKDIR /var/www/html
+
+CMD ["sh", "-c", "composer install || true && composer update || true && php bin/console make:migration || true && php bin/console doctrine:migrations:migrate || true && php bin/console messenger:consume async & apache2-foreground"]

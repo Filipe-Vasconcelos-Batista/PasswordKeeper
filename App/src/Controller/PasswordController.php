@@ -24,11 +24,14 @@ class PasswordController extends AbstractController
         $user=$this->getUser();
         $passwords=$manager->getRepository(Password::class)->findBy(['user'=>$user]);
         $midAuth=$this->checkMidAuth($cache);
+        $highAuth=$this->checkHighAuth($cache);
         return $this->render('password/index.html.twig', [
             'passwords'=> $passwords,
             'midAuth'=>$midAuth,
+            'highAuth'=>$highAuth,
         ]);
     }
+
     #[Route('/password/generate', name: 'app_password_generate')]
     public function generatePassword(Request $request, PasswordGeneratorService $passwordGeneratorService, EntityManagerInterface $manager): Response{
         $password=new Password();
@@ -104,6 +107,7 @@ class PasswordController extends AbstractController
             'password'=> $password
         ]);
     }
+
     #[Route('password/delete/{id}', name: 'app_password_delete')]
     public function deletePassword(EntityManagerInterface $manager, int $id): Response
     {
@@ -131,6 +135,11 @@ class PasswordController extends AbstractController
         $cacheItem= $cache->getItem('user_' . $this->getUser()->getId());
         $cacheData=$cacheItem->isHit() ? $cacheItem->get() : false;
         return isset($cacheData['midauth']) && $cacheData['midauth']===true;
-
     }
+    private function checkHighAuth(CacheInterface $cache): bool{
+        $cacheItem= $cache->getItem('user_' . $this->getUser()->getId());
+        $cacheData=$cacheItem->isHit() ? $cacheItem->get() : false;
+        return isset($cacheData['highauth']) && $cacheData['highauth']===true;
+    }
+
 }
