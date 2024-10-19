@@ -5,6 +5,7 @@ namespace App\Controller;
 use App\Entity\PinCode;
 use App\Form\PincodeType;
 use App\Service\CacheService;
+use App\Service\EmailService;
 use App\Service\PincodeService;
 use Doctrine\ORM\EntityManagerInterface;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
@@ -18,11 +19,13 @@ class PincodeController extends AbstractController
     private PincodeService $pincodeService;
 
     private CacheService $cache;
+    private EmailService $emailService;
 
-    public function __construct(PincodeService $pincodeService, CacheService $cache)
+    public function __construct(PincodeService $pincodeService, CacheService $cache, EmailService $emailService)
     {
         $this->pincodeService = $pincodeService;
         $this->cache = $cache;
+        $this->emailService = $emailService;
     }
 
     #[Route('/pincode', name: 'app_pincode')]
@@ -96,12 +99,17 @@ class PincodeController extends AbstractController
             'form' => $form,
         ]);
     }
-    #[Route('/pincode/insertSecret', name: 'app_pincode_insert')]
+    #[Route('/pincode/insertSecret', name: 'app_pincodeSecret_insert')]
     public function insertSecret(Request $request, EntityManagerInterface $manager, CacheInterface $cache): Response
     {
-        $pincodeService=$this->pincodeService;
-        $generated=$pincodeService->generatePincode();
+        $userEmail=$this->getUser()->getEmail();
+        $generated=$this->pincodeService->generatePincode();
+        $hashedInputPinCode = hash('sha256', $generated);
+        $this->cache->setSecret( $hashedInputPinCode, $userEmail);
+        $this->emailService->sendEmail($userEmail, $generated);
+
         $user = $this->getUser();
+
         $form = $this->createForm(PincodeType::class);
         $form->handleRequest($request);
 

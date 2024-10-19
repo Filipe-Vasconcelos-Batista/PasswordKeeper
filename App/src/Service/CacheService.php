@@ -24,6 +24,12 @@ class CacheService
         $item->set([$name => true]);
         $cache->save($item);
     }
+    public function setSecret(string $secret, int $userId): void
+    {
+            $item = $this -> $cache->getItem('user_' . $userId);
+            $item->expiresAfter(300);
+            $item->set(['secret' => $secret]);
+    }
 
 }
 

@@ -4,15 +4,12 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="86291950-77e0-4282-b227-017133bf5869" name="Changes" comment="feat: We can now compare pincodes (it still does nothing)">
-      <change afterPath="$PROJECT_DIR$/App/src/Service/CacheService.php" afterDir="false" />
+    <list default="true" id="86291950-77e0-4282-b227-017133bf5869" name="Changes" comment="feat:now every saved password is encrypted at creation and decripted at reading">
+      <change afterPath="$PROJECT_DIR$/App/src/Service/EmailService.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/App/Dockerfile" beforeDir="false" afterPath="$PROJECT_DIR$/App/Dockerfile" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/App/composer.lock" beforeDir="false" afterPath="$PROJECT_DIR$/App/composer.lock" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/App/src/Controller/PasswordController.php" beforeDir="false" afterPath="$PROJECT_DIR$/App/src/Controller/PasswordController.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/App/docker-compose.yml" beforeDir="false" afterPath="$PROJECT_DIR$/App/docker-compose.yml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/App/src/Controller/PincodeController.php" beforeDir="false" afterPath="$PROJECT_DIR$/App/src/Controller/PincodeController.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/App/src/Entity/Password.php" beforeDir="false" afterPath="$PROJECT_DIR$/App/src/Entity/Password.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/App/src/Entity/User.php" beforeDir="false" afterPath="$PROJECT_DIR$/App/src/Entity/User.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/App/src/Service/CacheService.php" beforeDir="false" afterPath="$PROJECT_DIR$/App/src/Service/CacheService.php" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -150,26 +147,26 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent">{
-  &quot;keyToString&quot;: {
-    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
-    &quot;git-widget-placeholder&quot;: &quot;18-lets-make-the-diferent-levels-of-security-behave-diferently&quot;,
-    &quot;ignore.virus.scanning.warn.message&quot;: &quot;true&quot;,
-    &quot;last_opened_file_path&quot;: &quot;/home/filifil/PhpstormProjects/SmartCellar&quot;,
-    &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
-    &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
-    &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
-    &quot;node.js.selected.package.tslint&quot;: &quot;(autodetect)&quot;,
-    &quot;nodejs_package_manager_path&quot;: &quot;npm&quot;,
-    &quot;ts.external.directory.path&quot;: &quot;/home/filifil/Transferências/PhpStorm-241.14494.237/plugins/javascript-impl/jsLanguageServicesImpl/external&quot;,
-    &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
+  <component name="PropertiesComponent"><![CDATA[{
+  "keyToString": {
+    "RunOnceActivity.ShowReadmeOnStart": "true",
+    "git-widget-placeholder": "18-lets-make-the-diferent-levels-of-security-behave-diferently",
+    "ignore.virus.scanning.warn.message": "true",
+    "last_opened_file_path": "/home/filifil/PhpstormProjects/ClientEntryDashboard",
+    "node.js.detected.package.eslint": "true",
+    "node.js.detected.package.tslint": "true",
+    "node.js.selected.package.eslint": "(autodetect)",
+    "node.js.selected.package.tslint": "(autodetect)",
+    "nodejs_package_manager_path": "npm",
+    "ts.external.directory.path": "/home/filifil/Transferências/PhpStorm-241.14494.237/plugins/javascript-impl/jsLanguageServicesImpl/external",
+    "vue.rearranger.settings.migration": "true"
   },
-  &quot;keyToStringList&quot;: {
-    &quot;DatabaseDriversLRU&quot;: [
-      &quot;mysql&quot;
+  "keyToStringList": {
+    "DatabaseDriversLRU": [
+      "mysql"
     ]
   }
-}</component>
+}]]></component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
       <recent name="$PROJECT_DIR$/App/public/images" />
@@ -205,7 +202,7 @@
       <workItem from="1728912261895" duration="16916000" />
       <workItem from="1729237078660" duration="2046000" />
       <workItem from="1729249524371" duration="7546000" />
-      <workItem from="1729367824308" duration="795000" />
+      <workItem from="1729367824308" duration="8534000" />
     </task>
     <task id="LOCAL-00001" summary="feat:add password page">
       <option name="closed" value="true" />
@@ -423,7 +420,23 @@
       <option name="project" value="LOCAL" />
       <updated>1728988342339</updated>
     </task>
-    <option name="localTasksCounter" value="28" />
+    <task id="LOCAL-00028" summary=":chore: more code cleanUp">
+      <option name="closed" value="true" />
+      <created>1729368641294</created>
+      <option name="number" value="00028" />
+      <option name="presentableId" value="LOCAL-00028" />
+      <option name="project" value="LOCAL" />
+      <updated>1729368641294</updated>
+    </task>
+    <task id="LOCAL-00029" summary="feat:now every saved password is encrypted at creation and decripted at reading">
+      <option name="closed" value="true" />
+      <created>1729374643943</created>
+      <option name="number" value="00029" />
+      <option name="presentableId" value="LOCAL-00029" />
+      <option name="project" value="LOCAL" />
+      <updated>1729374643943</updated>
+    </task>
+    <option name="localTasksCounter" value="30" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -444,8 +457,6 @@
     </option>
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="feat:now we have a register and a login page" />
-    <MESSAGE value="fix:login page double labels" />
     <MESSAGE value="feat: we now have a insert password controller function" />
     <MESSAGE value="fix: bug not found route for password/insert&#10;feat: added a webpage to insert one of the passwords" />
     <MESSAGE value="fix: extra field on the insert password page" />
@@ -469,6 +480,8 @@
     <MESSAGE value="chore: pincode can now be hashed before saved" />
     <MESSAGE value="feat: Login password retrieval can now be done by the user" />
     <MESSAGE value="feat: We can now compare pincodes (it still does nothing)" />
-    <option name="LAST_COMMIT_MESSAGE" value="feat: We can now compare pincodes (it still does nothing)" />
+    <MESSAGE value=":chore: more code cleanUp" />
+    <MESSAGE value="feat:now every saved password is encrypted at creation and decripted at reading" />
+    <option name="LAST_COMMIT_MESSAGE" value="feat:now every saved password is encrypted at creation and decripted at reading" />
   </component>
 </project>
