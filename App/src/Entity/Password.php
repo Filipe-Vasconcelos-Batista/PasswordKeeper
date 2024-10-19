@@ -25,7 +25,7 @@ class Password
     #[ORM\Column(length: 255)]
     private ?string $password = null;
 
-    #[ORM\ManyToOne(targetEntity: User::class)]
+    #[ORM\ManyToOne(targetEntity: User::class, inversedBy: "passwords")]
     #[ORM\JoinColumn(nullable: false)]
     private ?User $user = null;
 

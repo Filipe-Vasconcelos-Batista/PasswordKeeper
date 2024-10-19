@@ -5,9 +5,14 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="86291950-77e0-4282-b227-017133bf5869" name="Changes" comment="feat: We can now compare pincodes (it still does nothing)">
+      <change afterPath="$PROJECT_DIR$/App/src/Service/CacheService.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/App/Dockerfile" beforeDir="false" afterPath="$PROJECT_DIR$/App/Dockerfile" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/App/composer.lock" beforeDir="false" afterPath="$PROJECT_DIR$/App/composer.lock" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/App/src/Controller/PasswordController.php" beforeDir="false" afterPath="$PROJECT_DIR$/App/src/Controller/PasswordController.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/App/templates/password/index.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/App/templates/password/index.html.twig" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/App/src/Controller/PincodeController.php" beforeDir="false" afterPath="$PROJECT_DIR$/App/src/Controller/PincodeController.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/App/src/Entity/Password.php" beforeDir="false" afterPath="$PROJECT_DIR$/App/src/Entity/Password.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/App/src/Entity/User.php" beforeDir="false" afterPath="$PROJECT_DIR$/App/src/Entity/User.php" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -199,6 +204,8 @@
       <workItem from="1728905184839" duration="6864000" />
       <workItem from="1728912261895" duration="16916000" />
       <workItem from="1729237078660" duration="2046000" />
+      <workItem from="1729249524371" duration="7546000" />
+      <workItem from="1729367824308" duration="795000" />
     </task>
     <task id="LOCAL-00001" summary="feat:add password page">
       <option name="closed" value="true" />
