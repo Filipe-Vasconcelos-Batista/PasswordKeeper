@@ -107,21 +107,16 @@ class PincodeController extends AbstractController
 
         if ($form->isSubmitted() && $form->isValid()) {
             try {
-
                 $inputPinCode = $form->get('pincode')->getData();
                 $hashedInputPinCode = hash('sha256', $inputPinCode);
-
                 $pinCodeData = $manager->getRepository(PinCode::class)->findOneBy(['user' => $user]);
-
                 if (!$pinCodeData) {
                     $this->addFlash('error', 'Pincode data not found');
                     return $this->render('pincode/index.html.twig', [
                         'form' => $form,
                     ]);
                 }
-
                 $storedHashedPinCode = $pinCodeData->getHashedPincode();
-
                 if ($hashedInputPinCode === $storedHashedPinCode) {
                     try {
                         $item = $cache->getItem('user_' . $user->getId());

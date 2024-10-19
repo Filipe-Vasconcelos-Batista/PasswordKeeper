@@ -15,6 +15,7 @@ services:
       DB_USER: ${DB_USER}
       DB_PASS: ${DB_PASS}
       API_NINJA_KEY: ${API_NINJA_KEY}
+      ENCRYPT_KEY: ${ENCRYPT_KEY}
   redis:
     image: redis:7.0.0
     ports:

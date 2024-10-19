@@ -14,7 +14,6 @@ use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Attribute\Route;
 use Symfony\Component\Security\Core\Exception\AccessDeniedException;
-use Symfony\Contracts\Cache\CacheInterface;
 
 class PasswordController extends AbstractController
 {
@@ -22,17 +21,25 @@ class PasswordController extends AbstractController
 
     private PasswordGeneratorService $passwordGenerator;
 
+    private string $secret;
+
     public function __construct(CacheService $cacheService, PasswordGeneratorService $passwordGenerator)
     {
         $this->cache = $cacheService;
         $this->passwordGenerator = $passwordGenerator;
+        $this->secret = $_ENV['ENCRYPT_KEY'];
+
     }
     #[Route('/password', name: 'app_password_list')]
-    public function index(EntityManagerInterface $manager,CacheInterface $cache): Response
+    public function index(EntityManagerInterface $manager): Response
     {
         $this->checkPinCode($manager);
         $user=$this->getUser();
         $passwords=$manager->getRepository(Password::class)->findBy(['user'=>$user]);
+        foreach($passwords as $password){
+            $original=$password->getPassword();
+            $password->setPassword($this->decryptPassword($original));
+        }
         $midAuth=$this->cache->checkAuth('midauth' , $user->getId());
         $highAuth=$this->cache->checkAuth('highauth' , $user->getId());;
         return $this->render('password/index.html.twig', [
@@ -43,7 +50,7 @@ class PasswordController extends AbstractController
     }
 
     #[Route('/password/generate', name: 'app_password_generate')]
-    public function generatePassword(Request $request, PasswordGeneratorService $passwordGeneratorService, EntityManagerInterface $manager): Response{
+    public function generatePassword(Request $request, EntityManagerInterface $manager): Response{
         $password=new Password();
         $generated=null;
         $SaveForm= $this->createForm(PasswordType::class,$password);
@@ -53,6 +60,7 @@ class PasswordController extends AbstractController
         try{
             if($SaveForm->isSubmitted() && $SaveForm->isValid()){
                 $password->setUser($this->getUser());
+                $password->setPassword($this->encryptPassword($SaveForm->get("password")->getData()));
                 $manager->persist($password);
                 $manager->flush();
                 $this->addFlash('success', 'Password saved');
@@ -77,14 +85,17 @@ class PasswordController extends AbstractController
     public function individual(EntityManagerInterface $manager, int $id): Response
     {
         $password=$manager->getRepository(Password::class)->findOneBy(['id'=> $id]);
+
         $this->checkUser($password);
+        $original=$password->getPassword();
+        $password->setPassword($this->decryptPassword($original));
         return $this->render('password/individual.html.twig', [
             'password'=> $password
         ]);
     }
 
     #[Route('/password/edit/{id}', name: 'app_password_edit')]
-    public function editPassword(EntityManagerInterface $manager, Request $request,int $id,PasswordGeneratorService $passwordGeneratorService): Response
+    public function editPassword(EntityManagerInterface $manager, Request $request,int $id): Response
     {
         $password=$manager->getRepository(Password::class)->findOneBy(['id'=> $id]);
         $this->checkUser($password);
@@ -95,16 +106,15 @@ class PasswordController extends AbstractController
         $generateForm->handleRequest($request);
         try{
             if($form->isSubmitted() && $form->isValid()){
+                $original=$form->get('password')->getData();
+                $password->setPassword($this->encryptPassword($original));
                 $manager->persist($password);
                 $manager->flush();
 
             }
             elseif($generateForm->isSubmitted() && $generateForm->isValid()){
                 $formData=$generateForm->getData();
-                $length=$formData['length'];
-                $numbers=$formData['numbers'];
-                $special=$formData['specialk'];
-                $generated=$passwordGeneratorService->generatePassword($length,$numbers,$special);
+                $generated=$this->generateNewPassword($formData);
             }
         }catch(\Exception $e){
             $this->addFlash('error','Your password could not be generated', $e->getMessage());
@@ -147,5 +157,13 @@ class PasswordController extends AbstractController
             exit;
         }
     }
-
+    private function encryptPassword(string $password):string{
+        $iv=openssl_random_pseudo_bytes(openssl_cipher_iv_length('aes-256-cbc'));
+        $encryptedPassword=openssl_encrypt($password,'aes-256-cbc',$this->secret,0,$iv);
+        return base64_encode($encryptedPassword . '::' . $iv);
+    }
+    private function decryptPassword(string $password){
+        list($encryptedData, $iv)=explode('::' , base64_decode($password),2);
+        return openssl_decrypt($encryptedData,'aes-256-cbc', $this->secret,0,$iv);
+    }
 }
