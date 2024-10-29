@@ -16,8 +16,8 @@ services:
       DB_PASS: ${DB_PASS}
       API_NINJA_KEY: ${API_NINJA_KEY}
       ENCRYPT_KEY: ${ENCRYPT_KEY}
-      EMAIL: ${EMAIL]
-      EMAIL_PASSWORD: $[EMAIL_PASSWORD}
+      EMAIL: ${EMAIL}
+      EMAIL_PASSWORD: ${EMAIL_PASSWORD}
   redis:
     image: redis:7.0.0
     ports:

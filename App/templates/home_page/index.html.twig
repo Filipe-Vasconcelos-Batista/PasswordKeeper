@@ -4,13 +4,21 @@
 
 
 {% block body %}
-
-<div class=" cover cover-container d-flex  p-3 mx-auto flex-column text-shadow justify-content-center align-items-center">
-        <h3 class="home-text home-text-padding">A one of a kind password Service</h3>
-        <h1 class="home-text home-text-padding">Password Keeper</h1>
-        <p class="home-text home-paragraf-text home-text-padding">Tired of having you password written down in paper?</p>
-        <p class="home-text home-paragraf-text">Tired of big tech having access to your data?</p>
-        <p class="home-text home-paragraf-text"><a class="btn btn-outline-info" href="https://github.com/Filipe-Vasconcelos-Batista/PasswordKeeper/blob/main/README.md">Download and build it in your Home network</a></p>
-        <p class="home-text home-paragraf-text"><a class="btn btn-outline-info" href="{{ path('app_register') }}">Or make an account and join us</a></p>
-</div>
+        <div class="card mb-3 bg-dark bg-opacity-10 text-white" style="max-width: 100vw;">
+                <div class="row g-0">
+                        <div class="col-md-4">
+                                <img src="https://tse1.mm.bing.net/th?id=OIG4.P1Ph4cBhOGM8KaI9kLsx&pid=ImgGn" class="img-fluid rounded-start" alt="building">
+                        </div>
+                        <div class="col-md-8">
+                                <div class="card-body">
+                                        <p class="card-text text-center">A one of a kind password Service</p>
+                                        <h2 class="card-title text-center">Password Keeper</h2>
+                                        <p class="card-text text-center">Tired of having your passwords written down in paper?</p>
+                                        <p class="card-text text-center"><small class="text-body-secondary">Tired of big tech having access to your data?</small></p>
+                                        <p class="card-text text-center"><a class="btn btn-outline-info" href="https://github.com/Filipe-Vasconcelos-Batista/PasswordKeeper/blob/main/README.md">Download and build</a></p>
+                                        <p class="card-text text-center"><a class="btn btn-outline-info" href="{{ path('app_register') }}">Or make an account and join us</a></p>
+                                </div>
+                        </div>
+                </div>
+        </div>
 {% endblock %}
