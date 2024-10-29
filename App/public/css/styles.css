@@ -4,23 +4,5 @@
 }
 
 .cover{
-    margin-top:-20px;
-    background-image: url('https://images.pexels.com/photos/1089438/pexels-photo-1089438.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1');
-    background-size: 50vw;
-    height: 95vh;
-}
-
-.home-text{
-    color: white;
-    text-align: center;
-}
-.home-text-padding{
-    padding-top: 50px;
-}
-.home-paragraf-text{
-    color: white;
-}
-
-.scale-in-center{
-    animation: scale-in-center 1s cubic-bezier(0.25, 0.460, 0.450, 940) both;
+    margin-top:-15px;
 }

@@ -2,21 +2,121 @@
 
 {% block title %}Bank of Keys{% endblock %}
 
-
 {% block body %}
-        <div class="card mb-3 bg-dark bg-opacity-10 text-white" style="max-width: 100vw;">
+        <div class="card mb-3 bg-dark bg-opacity-10 mx-auto" style="width: 95vw; height: 90vh ; margin-top:-15px">
                 <div class="row g-0">
-                        <div class="col-md-4">
-                                <img src="https://tse1.mm.bing.net/th?id=OIG4.P1Ph4cBhOGM8KaI9kLsx&pid=ImgGn" class="img-fluid rounded-start" alt="building">
+                        <div class="col-md-7">
+                                <img src="https://tse1.mm.bing.net/th?id=OIG4.P1Ph4cBhOGM8KaI9kLsx&pid=ImgGn" class="img-fluid rounded-start" style="width: 95%; height: 79%"  alt="building">
                         </div>
-                        <div class="col-md-8">
+                        <div class="col-md-4">
                                 <div class="card-body">
-                                        <p class="card-text text-center">A one of a kind password Service</p>
-                                        <h2 class="card-title text-center">Password Keeper</h2>
-                                        <p class="card-text text-center">Tired of having your passwords written down in paper?</p>
-                                        <p class="card-text text-center"><small class="text-body-secondary">Tired of big tech having access to your data?</small></p>
-                                        <p class="card-text text-center"><a class="btn btn-outline-info" href="https://github.com/Filipe-Vasconcelos-Batista/PasswordKeeper/blob/main/README.md">Download and build</a></p>
-                                        <p class="card-text text-center"><a class="btn btn-outline-info" href="{{ path('app_register') }}">Or make an account and join us</a></p>
+                                        <p class="card-text text-center">
+                                            A one of a kind password Service
+                                        </p>
+                                        <h2 class="card-title text-center">
+                                            Password Keeper
+                                        </h2>
+                                        <p class="card-text text-center">
+                                            Tired of having your passwords written down in paper?
+                                        </p>
+                                        <p class="card-text text-center">
+                                            <small class="text-body-secondary">
+                                                Tired of big tech having access to your data?
+                                            </small>
+                                        </p>
+                                        <p class="card-text text-center">
+                                           <a class="btn btn-outline-info" href="https://github.com/Filipe-Vasconcelos-Batista/PasswordKeeper/blob/main/README.md">
+                                               Download and build
+                                           </a>
+                                        </p>
+                                        <p class="card-text text-center">
+                                          <a class="btn btn-outline-info" href="{{ path('app_register') }}">
+                                           Join Us
+                                          </a>
+                                        </p>
+                                    <h5 class="card-text ">
+                                        Made with:
+                                    </h5>
+                                    <div class="border mx-auto border-success p-2 border-opacity-10 mx-auto">
+                                        <div class="card mb-3" style="max-width: 560px; height: 100px">
+                                            <div class="row g-0">
+                                                <div class="col-md-3">
+                                                    <img src="https://w7.pngwing.com/pngs/585/802/png-transparent-symfony-full-logo-tech-companies.png" class="img-fluid rounded-start" alt="...">
+                                                </div>
+                                                <div class="col-md-8">
+                                                    <div class="card-body">
+                                                        <h5 class="card-title">Symfony</h5>
+                                                        <p class="card-text"><small class="text-body-secondary">PHP web application framework</small></p>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="card mb-3" style="max-width: 560px; height: 100px">
+                                            <div class="row g-0">
+                                                <div class="col-md-3">
+                                                    <img src="https://www.clipartmax.com/png/middle/205-2057510_twig-logo-twig-logo-svg.png" class="img-fluid rounded-start" alt="...">
+                                                </div>
+                                                <div class="col-md-8">
+                                                    <div class="card-body">
+                                                        <h5 class="card-title">Twig</h5>
+                                                        <p class="card-text"><small class="text-body-secondary">PHP template engine</small></p>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="card mb-3" style="max-width: 560px; height: 100px">
+                                            <div class="row g-0">
+                                                <div class="col-md-3">
+                                                    <img src="https://banner2.cleanpng.com/20180411/wre/avf0mauoj.webp" class="img-fluid rounded-start" alt="...">
+                                                </div>
+                                                <div class="col-md-8">
+                                                    <div class="card-body">
+                                                        <h5 class="card-title">MySQL</h5>
+                                                        <p class="card-text"><small class="text-body-secondary">Relational database management system (RDBMS)</small></p>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="card mb-3" style="max-width: 560px; height: 100px">
+                                            <div class="row g-0">
+                                                <div class="col-md-3">
+                                                    <img src="https://w7.pngwing.com/pngs/198/984/png-transparent-doctrine-plain-wordmark-logo-icon-thumbnail.png" class="img-fluid rounded-start" alt="...">
+                                                </div>
+                                                <div class="col-md-8">
+                                                    <div class="card-body">
+                                                        <h5 class="card-title">Doctrine</h5>
+                                                        <p class="card-text"><small class="text-body-secondary">PHP object-relational mapping (ORM) library</small></p>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="card mb-3" style="max-width: 560px; height: 100px">
+                                            <div class="row g-0">
+                                                <div class="col-md-3">
+                                                    <img src="https://banner2.cleanpng.com/20180804/ubh/15628014070a7c13bc2a950bb921f0ae.webp" class="img-fluid rounded-start" alt="...">
+                                                </div>
+                                                <div class="col-md-8">
+                                                    <div class="card-body">
+                                                        <h5 class="card-title">Docker</h5>
+                                                        <p class="card-text"><small class="text-body-secondary">Platform for developing, shipping, and running applications in containers.</small></p>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="card mb-3" style="max-width: 560px; height: 100px">
+                                            <div class="row g-0">
+                                                <div class="col-md-3">
+                                                    <img src="../../public/img/pngegg.png" class="img-fluid rounded-start" alt="...">
+                                                </div>
+                                                <div class="col-md-8">
+                                                    <div class="card-body">
+                                                        <h5 class="card-title">Bootstrap</h5>
+                                                        <p class="card-text"><small class="text-body-secondary">Platform for developing, shipping, and running applications in containers.</small></p>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
                                 </div>
                         </div>
                 </div>
