@@ -1,124 +1,86 @@
 {% extends 'base.html.twig' %}
 
 {% block title %}Bank of Keys{% endblock %}
-
 {% block body %}
-        <div class="card mb-3 bg-dark bg-opacity-10 mx-auto" style="width: 95vw; height: 90vh ; margin-top:-15px">
-                <div class="row g-0">
-                        <div class="col-md-7">
-                                <img src="https://tse1.mm.bing.net/th?id=OIG4.P1Ph4cBhOGM8KaI9kLsx&pid=ImgGn" class="img-fluid rounded-start" style="width: 95%; height: 79%"  alt="building">
-                        </div>
-                        <div class="col-md-4">
-                                <div class="card-body">
-                                        <p class="card-text text-center">
-                                            A one of a kind password Service
-                                        </p>
-                                        <h2 class="card-title text-center">
-                                            Password Keeper
-                                        </h2>
-                                        <p class="card-text text-center">
-                                            Tired of having your passwords written down in paper?
-                                        </p>
-                                        <p class="card-text text-center">
-                                            <small class="text-body-secondary">
-                                                Tired of big tech having access to your data?
-                                            </small>
-                                        </p>
-                                        <p class="card-text text-center">
-                                           <a class="btn btn-outline-info" href="https://github.com/Filipe-Vasconcelos-Batista/PasswordKeeper/blob/main/README.md">
-                                               Download and build
-                                           </a>
-                                        </p>
-                                        <p class="card-text text-center">
-                                          <a class="btn btn-outline-info" href="{{ path('app_register') }}">
-                                           Join Us
-                                          </a>
-                                        </p>
-                                    <h5 class="card-text ">
-                                        Made with:
-                                    </h5>
-                                    <div class="border mx-auto border-success p-2 border-opacity-10 mx-auto">
-                                        <div class="card mb-3" style="max-width: 560px; height: 100px">
-                                            <div class="row g-0">
-                                                <div class="col-md-3">
-                                                    <img src="https://w7.pngwing.com/pngs/585/802/png-transparent-symfony-full-logo-tech-companies.png" class="img-fluid rounded-start" alt="...">
-                                                </div>
-                                                <div class="col-md-8">
-                                                    <div class="card-body">
-                                                        <h5 class="card-title">Symfony</h5>
-                                                        <p class="card-text"><small class="text-body-secondary">PHP web application framework</small></p>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                        </div>
-                                        <div class="card mb-3" style="max-width: 560px; height: 100px">
-                                            <div class="row g-0">
-                                                <div class="col-md-3">
-                                                    <img src="https://www.clipartmax.com/png/middle/205-2057510_twig-logo-twig-logo-svg.png" class="img-fluid rounded-start" alt="...">
-                                                </div>
-                                                <div class="col-md-8">
-                                                    <div class="card-body">
-                                                        <h5 class="card-title">Twig</h5>
-                                                        <p class="card-text"><small class="text-body-secondary">PHP template engine</small></p>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                        </div>
-                                        <div class="card mb-3" style="max-width: 560px; height: 100px">
-                                            <div class="row g-0">
-                                                <div class="col-md-3">
-                                                    <img src="https://banner2.cleanpng.com/20180411/wre/avf0mauoj.webp" class="img-fluid rounded-start" alt="...">
-                                                </div>
-                                                <div class="col-md-8">
-                                                    <div class="card-body">
-                                                        <h5 class="card-title">MySQL</h5>
-                                                        <p class="card-text"><small class="text-body-secondary">Relational database management system (RDBMS)</small></p>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                        </div>
-                                        <div class="card mb-3" style="max-width: 560px; height: 100px">
-                                            <div class="row g-0">
-                                                <div class="col-md-3">
-                                                    <img src="https://w7.pngwing.com/pngs/198/984/png-transparent-doctrine-plain-wordmark-logo-icon-thumbnail.png" class="img-fluid rounded-start" alt="...">
-                                                </div>
-                                                <div class="col-md-8">
-                                                    <div class="card-body">
-                                                        <h5 class="card-title">Doctrine</h5>
-                                                        <p class="card-text"><small class="text-body-secondary">PHP object-relational mapping (ORM) library</small></p>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                        </div>
-                                        <div class="card mb-3" style="max-width: 560px; height: 100px">
-                                            <div class="row g-0">
-                                                <div class="col-md-3">
-                                                    <img src="https://banner2.cleanpng.com/20180804/ubh/15628014070a7c13bc2a950bb921f0ae.webp" class="img-fluid rounded-start" alt="...">
-                                                </div>
-                                                <div class="col-md-8">
-                                                    <div class="card-body">
-                                                        <h5 class="card-title">Docker</h5>
-                                                        <p class="card-text"><small class="text-body-secondary">Platform for developing, shipping, and running applications in containers.</small></p>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                        </div>
-                                        <div class="card mb-3" style="max-width: 560px; height: 100px">
-                                            <div class="row g-0">
-                                                <div class="col-md-3">
-                                                    <img src="../../public/img/pngegg.png" class="img-fluid rounded-start" alt="...">
-                                                </div>
-                                                <div class="col-md-8">
-                                                    <div class="card-body">
-                                                        <h5 class="card-title">Bootstrap</h5>
-                                                        <p class="card-text"><small class="text-body-secondary">Platform for developing, shipping, and running applications in containers.</small></p>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                        </div>
+    <section id="hero-1946" class="cover">
+        <div class="cs-container">
+            <div class="cs-content">
+                <h2 class="cs-title">Password Keeper</h2>
+                <div class="cs-flex">
+                    <p class="cs-text">Tired of having your passwords on a piece of paper?</p>
+                    <p class="text-body-secondary">
+                        Tired of big tech having access to your data?
+                    </p>
+                    <a href="https://github.com/Filipe-Vasconcelos-Batista/PasswordKeeper" class="btn btn-outline-primary">Install and built</a>
+                    <a href="{{ path('app_register') }}" class=" btn btn-outline-primary">Join Us</a>
                 </div>
+            </div>
+            <picture class="cs-picture">
+                <source media="(min-width: 601px)" srcset="https://tse1.mm.bing.net/th?id=OIG4.P1Ph4cBhOGM8KaI9kLsx&pid=ImgGn" alt="image of a bank">
+                <source media="(max-width: 600px)" srcset="https://tse1.mm.bing.net/th?id=OIG4.P1Ph4cBhOGM8KaI9kLsx&pid=ImgGn" alt="image of a bank">
+                <img decoding="async" src="https://tse1.mm.bing.net/th?id=OIG4.P1Ph4cBhOGM8KaI9kLsx&pid=ImgGn" alt="construction site" width="1280" height="510">
+            </picture>
+            <ul class="cs-card-group">
+                <li class="cs-item">
+                    <picture class="cs-icon-picture">
+                        <img class="cs-icon" src="https://cdn1.iconfinder.com/data/icons/line-awesome-vol-6/32/symfony-512.png" decoding="async" alt="Symfony icon" width="40" height="40" aria-hidden="true">
+                    </picture>
+                    <!-- Text Grouped For Flexbox-->
+                    <div class="cs-text-group">
+                        <h3 class="cs-h3">Symfony</h3>
+                        <p class="cs-item-text">PHP web application framework.</p>
+                    </div>
+                </li>
+                <li class="cs-item">
+                    <picture class="cs-icon-picture">
+                        <img class="cs-icon" src="https://cdn4.iconfinder.com/data/icons/logos-brands-5/24/mysql-512.png" decoding="MySQL async" alt="icon" width="40" height="40" aria-hidden="true">
+                    </picture>
+                    <!-- Text Grouped For Flexbox-->
+                    <div class="cs-text-group">
+                        <h3 class="cs-h3">MySQl</h3>
+                        <p class="cs-item-text">Relational database management system (RDBMS).</p>
+                    </div>
+                </li>
+                <li class="cs-item">
+                    <picture class="cs-icon-picture">
+                        <img class="cs-icon" src="https://cdn0.iconfinder.com/data/icons/social-media-2104/24/social_media_social_media_logo_doctrine-512.png" decoding="async" alt="icon" width="40" height="40" aria-hidden="true">
+                    </picture>
+                    <!-- Text Grouped For Flexbox-->
+                    <div class="cs-text-group">
+                        <h3 class="cs-h3">Doctrine</h3>
+                        <p class="cs-item-text">PHP object-relational mapping (ORM) library.</p>
+                    </div>
+                </li>
+                <li class="cs-item">
+                    <picture class="cs-icon-picture">
+                        <img class="cs-icon" src="https://cdn1.iconfinder.com/data/icons/bootstrap/16/bootstrap-512.png" decoding="async" alt="Bootstrap icon" width="40" height="40" aria-hidden="true">
+                    </picture>
+                    <!-- Text Grouped For Flexbox-->
+                    <div class="cs-text-group">
+                        <h3 class="cs-h3">Bootstrap</h3>
+                        <p class="cs-item-text">Front-end framework for developing responsive and mobile-first websites.</p>
+                    </div>
+                </li>
+                <li class="cs-item">
+                    <picture class="cs-icon-picture">
+                        <img class="cs-icon" src="https://cdn0.iconfinder.com/data/icons/social-media-2104/24/social_media_social_media_logo_docker-512.png" decoding="async" alt="docker icon" width="40" height="40" aria-hidden="true">
+                    </picture>
+                    <!-- Text Grouped For Flexbox-->
+                    <div class="cs-text-group">
+                        <h3 class="cs-h3">Docker</h3>
+                        <p class="cs-item-text">Platform for developing, shipping, and running applications in containers.</p>
+                    </div>
+                </li>
+                <li class="cs-item">
+                    <picture class="cs-icon-picture">
+                        <img class="cs-icon" src="https://user-images.githubusercontent.com/11664877/201967131-aff777da-4c2b-4834-ae8d-817d2dc1657b.svg" decoding="async" alt="Twig icon" width="40" height="40" aria-hidden="true">
+                    </picture>
+                    <div class="cs-text-group">
+                        <h3 class="cs-h3">Twig</h3>
+                        <p class="cs-item-text">PHP template engine.</p>
+                    </div>
+                </li>
+            </ul>
         </div>
+    </section>
 {% endblock %}
