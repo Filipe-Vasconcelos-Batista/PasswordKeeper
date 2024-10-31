@@ -96,27 +96,26 @@ class PincodeController extends AbstractController
 
         return $this->render('pincode/index.html.twig', [
             'form' => $form,
+            'value'=>4,
+            "refresh"=>false,
         ]);
     }
     #[Route('/pincode/insertSecret', name: 'app_pincode_secret_insert')]
     public function insertSecret(Request $request): Response
     {
-        $userEmail=$this->getUser()->getEmail();
-        $generated=$this->pincodeService->generatePincode();
-        $hashedInputPinCode = hash('sha256', $generated);
-        $this->cache->setSecret( $hashedInputPinCode, $userEmail);
-        $this->emailService->sendEmail($userEmail, $generated);
-
         $user = $this->getUser();
-
+        $userId=$user->getId();
+        $generated=$this->cache->getSecret($userId);
+        if(!$generated){
+            $generated=$this->generate($userId);
+        }
         $form = $this->createForm(GeneratedPincodeType::class);
         $form->handleRequest($request);
-
         if ($form->isSubmitted() && $form->isValid()) {
             try {
-                $inputPinCode = $form->get('generatedPincode')->getData();
+                $inputPinCode = $form->get('pincode')->getData();
                 $hashedInputPinCode = hash('sha256', $inputPinCode);
-                $pincodeData = $this->cache->getSecret($user->getId());
+                $pincodeData = $this->cache->getSecret($userId);
                 if (!$pincodeData) {
                     $this->addFlash('error', 'Pincode data not found');
                     return $this->render('pincode/index.html.twig', [
@@ -125,7 +124,7 @@ class PincodeController extends AbstractController
                 };
                 if ($hashedInputPinCode === $pincodeData) {
                     try {
-                        $this->cache->setAuth('highAuth', $user->getId());
+                        $this->cache->setAuth('highAuth',$userId);
                         $this->addFlash('success', 'Pincode Inserted successfully');
                         return $this->redirectToRoute("app_password_list");
                     } catch (\Exception $cacheException) {
@@ -140,11 +139,25 @@ class PincodeController extends AbstractController
         }
         return $this->render('pincode/index.html.twig', [
             'form' => $form,
+            'value'=>6,
+            "refresh"=>true,
         ]);
     }
+    #[Route('/pincode/refresh', name: 'app_pincode_secret_refresh')]
+    public function secretGenerate(): Response{
+        $user = $this->getUser();
+        $userId=$user->getId();
+        $this->generate($userId);
+        return $this->redirectToRoute("app_pincode_secret_insert");
 
 
-
-
+    }
+    private function generate(int $userId): string{
+        $generated=$this->pincodeService->generatePincode();
+        $hashedInputPinCode = hash('sha256', $generated);
+        $this->cache->setSecret( $hashedInputPinCode, $userId);
+        $this->emailService->sendEmail($this->getUser()->getEmail(), $generated);
+        return $generated;
+    }
 }
 

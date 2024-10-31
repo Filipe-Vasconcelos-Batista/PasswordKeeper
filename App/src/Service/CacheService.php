@@ -19,23 +19,24 @@ class CacheService
     }
     public function setAuth(string $name,int $userId): void
     {
-        $item = $this -> $cache->getItem('user_' . $userId);
+        $item = $this -> cache->getItem('user_' . $userId);
         $item->expiresAfter(3600);
         $item->set([$name => true]);
-        $cache->save($item);
+        $this->cache->save($item);
     }
     public function setSecret(string $secret, int $userId): void
     {
-            $item = $this -> $cache->getItem('user_' . $userId);
+            $item = $this -> cache->getItem('user_' . $userId);
             $item->expiresAfter(300);
             $item->set(['secret' => $secret]);
+            $this->cache->save($item);
     }
     public function getSecret(int $userId): ?string
     {
-        $cacheItem = $this -> $cache->getItem('user_' . $userId);
+        $cacheItem = $this -> cache->getItem('user_' . $userId);
         $cacheData=$cacheItem->isHit() ? $cacheItem->get() : null;
         if($cacheData !== null){
-            return $cacheItem['secret'];
+            return $cacheData['secret'] ?? null;
         }
         return null;
 

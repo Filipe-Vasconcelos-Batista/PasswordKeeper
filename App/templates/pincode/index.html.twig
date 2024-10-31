@@ -5,14 +5,19 @@
         {{ form_start(form) }}
             <div class="mb-3">
                 <label for="description" class="form-label">Your Pincode</label>
-                <label for="description" class="form-label">*Must contain 4 numbers</label>
                 {{ form_row(form.pincode,{
                     id:'pincode',
                 }) }}
             </div>
+        <label for="description" class="form-label">*Must contain {{ value }} numbers</label>
             <div class="mb-3">
                 <button type="submit" class=" btn btn-outline-primary btn-lg">Save Changes</button>
             </div>
         {{ form_end(form) }}
     </div>
+    {% if refresh %}
+        <form action="{{ path('app_pincode_secret_refresh') }}">
+            <button type="submit" class="btn btn-danger">refresh</button>
+        </form>
+    {% endif %}
 {% endblock %}

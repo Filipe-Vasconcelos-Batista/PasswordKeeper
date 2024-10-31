@@ -40,8 +40,8 @@ class PasswordController extends AbstractController
             $original=$password->getPassword();
             $password->setPassword($this->decryptPassword($original));
         }
-        $midAuth=$this->cache->checkAuth('midauth' , $user->getId());
-        $highAuth=$this->cache->checkAuth('highauth' , $user->getId());;
+        $midAuth=$this->cache->getAuth('midauth' , $user->getId());
+        $highAuth=$this->cache->getAuth('highauth' , $user->getId());;
         return $this->render('password/index.html.twig', [
             'passwords'=> $passwords,
             'midAuth'=>$midAuth,

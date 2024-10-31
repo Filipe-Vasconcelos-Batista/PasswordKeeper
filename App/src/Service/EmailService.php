@@ -18,10 +18,10 @@ class EmailService
     public function sendEmail(string $userEmail,string $pincode){
         try {
             $email = (new Email())
-                ->from($this->email)
+                ->from("passwordkeeper123@outlook.com")
                 ->to($userEmail)
                 ->subject('your PasswordKeeper one use pincode')
-                ->text('your secret pincode is the following: ' . $pincode . 'if it doesnt work you can request another here');
+                ->text('your secret pincode is the following: ' . $pincode . ' if it doesnt work you can request another here');
 
         $this->mailer->send($email);
         }catch(\Exception $e){
