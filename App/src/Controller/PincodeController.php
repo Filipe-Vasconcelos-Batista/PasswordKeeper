@@ -3,6 +3,7 @@
 namespace App\Controller;
 
 use App\Entity\PinCode;
+use App\Form\GeneratedPincodeType;
 use App\Form\PincodeType;
 use App\Service\CacheService;
 use App\Service\EmailService;
@@ -12,8 +13,6 @@ use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Attribute\Route;
-use Symfony\Contracts\Cache\CacheInterface;
-
 class PincodeController extends AbstractController
 {
     private PincodeService $pincodeService;
@@ -99,8 +98,8 @@ class PincodeController extends AbstractController
             'form' => $form,
         ]);
     }
-    #[Route('/pincode/insertSecret', name: 'app_pincodeSecret_insert')]
-    public function insertSecret(Request $request, EntityManagerInterface $manager, CacheInterface $cache): Response
+    #[Route('/pincode/insertSecret', name: 'app_pincode_secret_insert')]
+    public function insertSecret(Request $request): Response
     {
         $userEmail=$this->getUser()->getEmail();
         $generated=$this->pincodeService->generatePincode();
@@ -110,27 +109,23 @@ class PincodeController extends AbstractController
 
         $user = $this->getUser();
 
-        $form = $this->createForm(PincodeType::class);
+        $form = $this->createForm(GeneratedPincodeType::class);
         $form->handleRequest($request);
 
         if ($form->isSubmitted() && $form->isValid()) {
             try {
-                $inputPinCode = $form->get('pincode')->getData();
+                $inputPinCode = $form->get('generatedPincode')->getData();
                 $hashedInputPinCode = hash('sha256', $inputPinCode);
-                $pinCodeData = $manager->getRepository(PinCode::class)->findOneBy(['user' => $user]);
-                if (!$pinCodeData) {
+                $pincodeData = $this->cache->getSecret($user->getId());
+                if (!$pincodeData) {
                     $this->addFlash('error', 'Pincode data not found');
                     return $this->render('pincode/index.html.twig', [
                         'form' => $form,
                     ]);
-                }
-                $storedHashedPinCode = $pinCodeData->getHashedPincode();
-                if ($hashedInputPinCode === $storedHashedPinCode) {
+                };
+                if ($hashedInputPinCode === $pincodeData) {
                     try {
-                        $item = $cache->getItem('user_' . $user->getId());
-                        $item->expiresAfter(3600);
-                        $item->set(['midauth' => true]);
-                        $cache->save($item);
+                        $this->cache->setAuth('highAuth', $user->getId());
                         $this->addFlash('success', 'Pincode Inserted successfully');
                         return $this->redirectToRoute("app_password_list");
                     } catch (\Exception $cacheException) {
@@ -143,7 +138,6 @@ class PincodeController extends AbstractController
                 $this->addFlash('error', 'Pincode doesn’t match: ' . $e->getMessage());
             }
         }
-
         return $this->render('pincode/index.html.twig', [
             'form' => $form,
         ]);

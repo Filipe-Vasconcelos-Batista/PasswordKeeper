@@ -12,7 +12,7 @@ class CacheService
     {
         $this->cache=$cache;
     }
-    public function checkAuth(string $name, int $userId): bool{
+    public function getAuth(string $name, int $userId): bool{
         $cacheItem= $this->cache->getItem('user_' . $userId);
         $cacheData=$cacheItem->isHit() ? $cacheItem->get() : false;
         return isset($cacheData[$name]) && $cacheData[$name]===true;
@@ -29,6 +29,16 @@ class CacheService
             $item = $this -> $cache->getItem('user_' . $userId);
             $item->expiresAfter(300);
             $item->set(['secret' => $secret]);
+    }
+    public function getSecret(int $userId): ?string
+    {
+        $cacheItem = $this -> $cache->getItem('user_' . $userId);
+        $cacheData=$cacheItem->isHit() ? $cacheItem->get() : null;
+        if($cacheData !== null){
+            return $cacheItem['secret'];
+        }
+        return null;
+
     }
 
 }
