@@ -4,18 +4,17 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="86291950-77e0-4282-b227-017133bf5869" name="Changes" comment="feat: landing page is finished, simple and efective">
-      <change afterPath="$PROJECT_DIR$/App/src/Service/PincodeService.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/PasswordKeeper.iml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/PasswordKeeper.iml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/codeception.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/codeception.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/php.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/php.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/phpspec.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/phpspec.xml" afterDir="false" />
+    <list default="true" id="86291950-77e0-4282-b227-017133bf5869" name="Changes" comment="Feat: finished the Secret pincode generated">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/App/composer.json" beforeDir="false" afterPath="$PROJECT_DIR$/App/composer.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/App/composer.lock" beforeDir="false" afterPath="$PROJECT_DIR$/App/composer.lock" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/App/src/Entity/Password.php" beforeDir="false" afterPath="$PROJECT_DIR$/App/src/Entity/Password.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/App/src/Entity/User.php" beforeDir="false" afterPath="$PROJECT_DIR$/App/src/Entity/User.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/App/symfony.lock" beforeDir="false" afterPath="$PROJECT_DIR$/App/symfony.lock" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/App/compose.override.yaml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/App/docker-compose.yml" beforeDir="false" afterPath="$PROJECT_DIR$/App/docker-compose.yml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/App/src/Controller/PasswordController.php" beforeDir="false" afterPath="$PROJECT_DIR$/App/src/Controller/PasswordController.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/App/src/Controller/PincodeController.php" beforeDir="false" afterPath="$PROJECT_DIR$/App/src/Controller/PincodeController.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/App/src/Form/GeneratedPincodeType.php" beforeDir="false" afterPath="$PROJECT_DIR$/App/src/Form/GeneratedPincodeType.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/App/src/Service/CacheService.php" beforeDir="false" afterPath="$PROJECT_DIR$/App/src/Service/CacheService.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/App/src/Service/EmailService.php" beforeDir="false" afterPath="$PROJECT_DIR$/App/src/Service/EmailService.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/App/templates/password/index.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/App/templates/password/index.html.twig" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/App/templates/pincode/index.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/App/templates/pincode/index.html.twig" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -42,7 +41,7 @@
     </excluded-from-favorite>
     <option name="RECENT_BRANCH_BY_REPOSITORY">
       <map>
-        <entry key="$PROJECT_DIR$" value="16-find-a-way-to-automatically-create-a-password" />
+        <entry key="$PROJECT_DIR$" value="main" />
       </map>
     </option>
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
@@ -85,7 +84,6 @@
       <path value="$PROJECT_DIR$/App/vendor/symfony/polyfill-intl-icu" />
       <path value="$PROJECT_DIR$/App/vendor/symfony/config" />
       <path value="$PROJECT_DIR$/App/vendor/symfony/options-resolver" />
-      <path value="$PROJECT_DIR$/App/vendor/symfony/form" />
       <path value="$PROJECT_DIR$/App/vendor/symfony/string" />
       <path value="$PROJECT_DIR$/App/vendor/symfony/routing" />
       <path value="$PROJECT_DIR$/App/vendor/symfony/polyfill-intl-grapheme" />
@@ -109,7 +107,6 @@
       <path value="$PROJECT_DIR$/App/vendor/symfony/twig-bridge" />
       <path value="$PROJECT_DIR$/App/vendor/symfony/property-access" />
       <path value="$PROJECT_DIR$/App/vendor/symfony/property-info" />
-      <path value="$PROJECT_DIR$/App/vendor/symfony/process" />
       <path value="$PROJECT_DIR$/App/vendor/symfony/doctrine-bridge" />
       <path value="$PROJECT_DIR$/App/vendor/symfony/translation-contracts" />
       <path value="$PROJECT_DIR$/App/vendor/symfony/stopwatch" />
@@ -135,13 +132,16 @@
       <path value="$PROJECT_DIR$/App/vendor/symfony/asset" />
       <path value="$PROJECT_DIR$/App/vendor/symfony/workflow" />
       <path value="$PROJECT_DIR$/App/vendor/symfony/http-client-contracts" />
-      <path value="$PROJECT_DIR$/App/vendor/symfony/http-client" />
       <path value="$PROJECT_DIR$/App/vendor/symfony/stimulus-bundle" />
       <path value="$PROJECT_DIR$/App/vendor/symfony/ux-turbo" />
       <path value="$PROJECT_DIR$/App/vendor/symfony/polyfill-intl-idn" />
-      <path value="$PROJECT_DIR$/App/vendor/symfony/mailer" />
-      <path value="$PROJECT_DIR$/App/vendor/symfony/mime" />
       <path value="$PROJECT_DIR$/App/vendor/egulias/email-validator" />
+      <path value="$PROJECT_DIR$/App/vendor/symfonycasts/reset-password-bundle" />
+      <path value="$PROJECT_DIR$/App/vendor/symfony/mime" />
+      <path value="$PROJECT_DIR$/App/vendor/symfony/process" />
+      <path value="$PROJECT_DIR$/App/vendor/symfony/mailer" />
+      <path value="$PROJECT_DIR$/App/vendor/symfony/form" />
+      <path value="$PROJECT_DIR$/App/vendor/symfony/http-client" />
     </include_path>
   </component>
   <component name="ProjectColorInfo">{
@@ -152,30 +152,34 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent">{
-  &quot;keyToString&quot;: {
-    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
-    &quot;git-widget-placeholder&quot;: &quot;main&quot;,
-    &quot;ignore.virus.scanning.warn.message&quot;: &quot;true&quot;,
-    &quot;last_opened_file_path&quot;: &quot;/home/filifil/PhpstormProjects/PasswordKeeper/App/public/images&quot;,
-    &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
-    &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
-    &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
-    &quot;node.js.selected.package.tslint&quot;: &quot;(autodetect)&quot;,
-    &quot;nodejs_package_manager_path&quot;: &quot;npm&quot;,
-    &quot;ts.external.directory.path&quot;: &quot;/home/filifil/Transferências/PhpStorm-241.14494.237/plugins/javascript-impl/jsLanguageServicesImpl/external&quot;,
-    &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
+  <component name="PropertiesComponent"><![CDATA[{
+  "keyToString": {
+    "RunOnceActivity.ShowReadmeOnStart": "true",
+    "git-widget-placeholder": "18-lets-make-the-diferent-levels-of-security-behave-diferently",
+    "ignore.virus.scanning.warn.message": "true",
+    "last_opened_file_path": "/home/filifil/PhpstormProjects/ClientEntryDashboard",
+    "node.js.detected.package.eslint": "true",
+    "node.js.detected.package.tslint": "true",
+    "node.js.selected.package.eslint": "(autodetect)",
+    "node.js.selected.package.tslint": "(autodetect)",
+    "nodejs_package_manager_path": "npm",
+    "ts.external.directory.path": "/home/filifil/Transferências/PhpStorm-241.14494.237/plugins/javascript-impl/jsLanguageServicesImpl/external",
+    "vue.rearranger.settings.migration": "true"
   },
-  &quot;keyToStringList&quot;: {
-    &quot;DatabaseDriversLRU&quot;: [
-      &quot;mysql&quot;
+  "keyToStringList": {
+    "DatabaseDriversLRU": [
+      "mysql"
     ]
   }
-}</component>
+}]]></component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/App/public/img" />
       <recent name="$PROJECT_DIR$/App/public/images" />
       <recent name="$PROJECT_DIR$/App/public/build" />
+    </key>
+    <key name="MoveFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/App/public/img" />
     </key>
   </component>
   <component name="SharedIndexes">
@@ -202,6 +206,15 @@
       <workItem from="1728303048124" duration="8172000" />
       <workItem from="1728386792898" duration="11572000" />
       <workItem from="1728651982419" duration="2813000" />
+      <workItem from="1728772337106" duration="3531000" />
+      <workItem from="1728905184839" duration="6864000" />
+      <workItem from="1728912261895" duration="16916000" />
+      <workItem from="1729237078660" duration="2046000" />
+      <workItem from="1729249524371" duration="7546000" />
+      <workItem from="1729367824308" duration="8588000" />
+      <workItem from="1729781361450" duration="344000" />
+      <workItem from="1730200616873" duration="9977000" />
+      <workItem from="1730348747048" duration="8493000" />
     </task>
     <task id="LOCAL-00001" summary="feat:add password page">
       <option name="closed" value="true" />
@@ -363,7 +376,127 @@
       <option name="project" value="LOCAL" />
       <updated>1728393643927</updated>
     </task>
-    <option name="localTasksCounter" value="21" />
+    <task id="LOCAL-00021" summary="feat: We have a Pincode entity and service">
+      <option name="closed" value="true" />
+      <created>1728769048329</created>
+      <option name="number" value="00021" />
+      <option name="presentableId" value="LOCAL-00021" />
+      <option name="project" value="LOCAL" />
+      <updated>1728769048329</updated>
+    </task>
+    <task id="LOCAL-00022" summary="bug: Emended the pinCode entity">
+      <option name="closed" value="true" />
+      <created>1728771283205</created>
+      <option name="number" value="00022" />
+      <option name="presentableId" value="LOCAL-00022" />
+      <option name="project" value="LOCAL" />
+      <updated>1728771283205</updated>
+    </task>
+    <task id="LOCAL-00023" summary="bug:made the created and updated at field in the password entity actually work on the database">
+      <option name="closed" value="true" />
+      <created>1728775626427</created>
+      <option name="number" value="00023" />
+      <option name="presentableId" value="LOCAL-00023" />
+      <option name="project" value="LOCAL" />
+      <updated>1728775626427</updated>
+    </task>
+    <task id="LOCAL-00024" summary="chore: made it check the pincode once the user logins, if the user does not have  a pincode it will be sent to the insert pincode page">
+      <option name="closed" value="true" />
+      <created>1728912704904</created>
+      <option name="number" value="00024" />
+      <option name="presentableId" value="LOCAL-00024" />
+      <option name="project" value="LOCAL" />
+      <updated>1728912704904</updated>
+    </task>
+    <task id="LOCAL-00025" summary="feat: Login password retrieval can now be done by the user">
+      <option name="closed" value="true" />
+      <created>1728917189948</created>
+      <option name="number" value="00025" />
+      <option name="presentableId" value="LOCAL-00025" />
+      <option name="project" value="LOCAL" />
+      <updated>1728917189948</updated>
+    </task>
+    <task id="LOCAL-00026" summary="feat: Login password retrieval can now be done by the user">
+      <option name="closed" value="true" />
+      <created>1728917399218</created>
+      <option name="number" value="00026" />
+      <option name="presentableId" value="LOCAL-00026" />
+      <option name="project" value="LOCAL" />
+      <updated>1728917399218</updated>
+    </task>
+    <task id="LOCAL-00027" summary="feat: We can now compare pincodes (it still does nothing)">
+      <option name="closed" value="true" />
+      <created>1728988342339</created>
+      <option name="number" value="00027" />
+      <option name="presentableId" value="LOCAL-00027" />
+      <option name="project" value="LOCAL" />
+      <updated>1728988342339</updated>
+    </task>
+    <task id="LOCAL-00028" summary=":chore: more code cleanUp">
+      <option name="closed" value="true" />
+      <created>1729368641294</created>
+      <option name="number" value="00028" />
+      <option name="presentableId" value="LOCAL-00028" />
+      <option name="project" value="LOCAL" />
+      <updated>1729368641294</updated>
+    </task>
+    <task id="LOCAL-00029" summary="feat:now every saved password is encrypted at creation and decripted at reading">
+      <option name="closed" value="true" />
+      <created>1729374643943</created>
+      <option name="number" value="00029" />
+      <option name="presentableId" value="LOCAL-00029" />
+      <option name="project" value="LOCAL" />
+      <updated>1729374643943</updated>
+    </task>
+    <task id="LOCAL-00030" summary="feat:now we g«have a email service to send the secret one time pincode to our users, we are almost there">
+      <option name="closed" value="true" />
+      <created>1729377327317</created>
+      <option name="number" value="00030" />
+      <option name="presentableId" value="LOCAL-00030" />
+      <option name="project" value="LOCAL" />
+      <updated>1729377327317</updated>
+    </task>
+    <task id="LOCAL-00031" summary="feat:change landing page">
+      <option name="closed" value="true" />
+      <created>1730204300712</created>
+      <option name="number" value="00031" />
+      <option name="presentableId" value="LOCAL-00031" />
+      <option name="project" value="LOCAL" />
+      <updated>1730204300712</updated>
+    </task>
+    <task id="LOCAL-00032" summary="feat:change landing page">
+      <option name="closed" value="true" />
+      <created>1730216295393</created>
+      <option name="number" value="00032" />
+      <option name="presentableId" value="LOCAL-00032" />
+      <option name="project" value="LOCAL" />
+      <updated>1730216295393</updated>
+    </task>
+    <task id="LOCAL-00033" summary="chore:finished the landing page">
+      <option name="closed" value="true" />
+      <created>1730348953748</created>
+      <option name="number" value="00033" />
+      <option name="presentableId" value="LOCAL-00033" />
+      <option name="project" value="LOCAL" />
+      <updated>1730348953748</updated>
+    </task>
+    <task id="LOCAL-00034" summary="Feat: finished the Secret pincode generated">
+      <option name="closed" value="true" />
+      <created>1730350999621</created>
+      <option name="number" value="00034" />
+      <option name="presentableId" value="LOCAL-00034" />
+      <option name="project" value="LOCAL" />
+      <updated>1730350999621</updated>
+    </task>
+    <task id="LOCAL-00035" summary="Feat: finished the Secret pincode generated">
+      <option name="closed" value="true" />
+      <created>1730351012531</created>
+      <option name="number" value="00035" />
+      <option name="presentableId" value="LOCAL-00035" />
+      <option name="project" value="LOCAL" />
+      <updated>1730351012531</updated>
+    </task>
+    <option name="localTasksCounter" value="36" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -372,15 +505,18 @@
   <component name="UnknownFeatures">
     <option featureType="com.intellij.fileTypeFactory" implementationName=".env" />
   </component>
+  <component name="Vcs.Log.Tabs.Properties">
+    <option name="TAB_STATES">
+      <map>
+        <entry key="MAIN">
+          <value>
+            <State />
+          </value>
+        </entry>
+      </map>
+    </option>
+  </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="feat:add password page" />
-    <MESSAGE value="docs:added gitignore" />
-    <MESSAGE value="feat:now we have a register and a login page" />
-    <MESSAGE value="fix:login page double labels" />
-    <MESSAGE value="feat: we now have a insert password controller function" />
-    <MESSAGE value="fix: bug not found route for password/insert&#10;feat: added a webpage to insert one of the passwords" />
-    <MESSAGE value="fix: extra field on the insert password page" />
-    <MESSAGE value="fix:Gave a quick link to register in the login page and a quick login link to the register page" />
     <MESSAGE value="Security:you need to login in order to see the pages that are not register and login" />
     <MESSAGE value="fix: now the security works correctelly" />
     <MESSAGE value="Chore: New migration created and run" />
@@ -393,6 +529,30 @@
     <MESSAGE value="chore: trying to make the turbo frames work the way I want it" />
     <MESSAGE value="feat: we can now automatically generate a password with a specific number of chars and with or without specials and numbers" />
     <MESSAGE value="feat: landing page is finished, simple and efective" />
-    <option name="LAST_COMMIT_MESSAGE" value="feat: landing page is finished, simple and efective" />
+    <MESSAGE value="feat: We have a Pincode entity and service" />
+    <MESSAGE value="bug: Emended the pinCode entity" />
+    <MESSAGE value="bug:made the created and updated at field in the password entity actually work on the database" />
+    <MESSAGE value="chore: made it check the pincode once the user logins, if the user does not have  a pincode it will be sent to the insert pincode page" />
+    <MESSAGE value="chore: pincode can now be hashed before saved" />
+    <MESSAGE value="feat: Login password retrieval can now be done by the user" />
+    <MESSAGE value="feat: We can now compare pincodes (it still does nothing)" />
+    <MESSAGE value=":chore: more code cleanUp" />
+    <MESSAGE value="feat:now every saved password is encrypted at creation and decripted at reading" />
+    <MESSAGE value="feat:now we g«have a email service to send the secret one time pincode to our users, we are almost there" />
+    <MESSAGE value="feat:change landing page" />
+    <MESSAGE value="chore:finished the landing page" />
+    <MESSAGE value="Feat: finished the Secret pincode generated" />
+    <option name="LAST_COMMIT_MESSAGE" value="Feat: finished the Secret pincode generated" />
+  </component>
+  <component name="XDebuggerManager">
+    <breakpoint-manager>
+      <breakpoints>
+        <line-breakpoint enabled="true" type="php">
+          <url>file://$PROJECT_DIR$/App/src/Controller/PasswordController.php</url>
+          <line>4</line>
+          <option name="timeStamp" value="1" />
+        </line-breakpoint>
+      </breakpoints>
+    </breakpoint-manager>
   </component>
 </project>

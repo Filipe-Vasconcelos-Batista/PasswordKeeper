@@ -46,7 +46,7 @@
         {% endif %}
         <div class="">
             {% for message in app.flashes('success') %}
-                <div class="alert alert-danger mt-3" role="alert">
+                <div class="alert alert-success mt-3 text-center" role="alert">
                     {{ message }}
                 </div>
             {% endfor %}
@@ -58,8 +58,10 @@
             <div class="text-center mt-3" id="clipboard">
                 <!-- Messages will be dynamically inserted here -->
             </div>
-            {% block body %}
-            {% endblock %}
+            <div class="m-1">
+                {% block body %}
+                {% endblock %}
+            </div>
         </div>
         <script src="{{ asset('build/app.js') }}"></script>
         <script src="{{ asset('js/clipboard.js') }}"></script>

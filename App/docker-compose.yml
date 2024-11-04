@@ -15,10 +15,21 @@ services:
       DB_USER: ${DB_USER}
       DB_PASS: ${DB_PASS}
       API_NINJA_KEY: ${API_NINJA_KEY}
+      ENCRYPT_KEY: ${ENCRYPT_KEY}
+      EMAIL: ${EMAIL}
+      EMAIL_PASSWORD: ${EMAIL_PASSWORD}
   redis:
     image: redis:7.0.0
     ports:
       - "6379:6379"
+  mailer:
+    image: axllent/mailpit
+    ports:
+      - "1025"
+      - "8025"
+    environment:
+      MP_SMTP_AUTH_ACCEPT_ANY: 1
+      MP_SMTP_AUTH_ALLOW_INSECURE: 1
 volumes:
 ###> doctrine/doctrine-bundle ###
   database_data:

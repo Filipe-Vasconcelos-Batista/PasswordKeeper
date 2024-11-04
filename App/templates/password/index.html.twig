@@ -15,24 +15,75 @@
                             <thead>
                             <tr>
                                 <th scope="col">Title</th>
-                                <th scope="col">Password</th>
+                                <th scope="col">Security</th>
                                 <th scope="col">Copy</th>
                                 <th scope="col">Delete</th>
                             </tr>
                             </thead>
                             <tbody>
                                 {% for password in passwords %}
+                                    {% if password.securityLevel == 'low' %}
                                     <tr>
                                         <td><a href="{{ path('app_password_personal',{ 'id':password.id}) }}">{{ password.local }}</a></td>
-                                        <td>{{ password.password }}</td>
+                                        <td>{{ password.securityLevel }}</td>
                                         <td><button type="button" onclick="copyToClipboard('{{ password.password }}')" class="btn btn-primary">Copy</button></td>
-
                                         <td>
                                             <form action="{{ path('app_password_delete',{'id':password.id}) }}">
                                                 <button type="submit" class="btn btn-danger">Delete</button>
                                             </form>
                                         </td>
                                     </tr>
+                                    {% elseif password.securityLevel == 'medium' %}
+                                        {% if  midAuth  %}
+                                            <tr>
+                                                <td><a href="{{ path('app_password_personal',{ 'id':password.id}) }}">{{ password.local }}</a></td>
+                                                <td>{{ password.securityLevel }}</td>
+                                                <td><button type="button" onclick="copyToClipboard('{{ password.password }}')" class="btn btn-primary">Copy</button></td>
+                                                <td>
+                                                    <form action="{{ path('app_password_delete',{'id':password.id}) }}">
+                                                        <button type="submit" class="btn btn-danger">Delete</button>
+                                                    </form>
+                                                </td>
+                                            </tr>
+                                        {% else %}
+                                            <td>No Authorization </td>
+                                            <td> {{ password.securityLevel }}</td>
+                                            <td>
+                                                <form action="{{ path('app_pincode_insert') }}">
+                                                    <button type="submit" class="btn btn-primary">Get authorization</button>
+                                                </form>
+                                            </td>
+                                            <td>
+                                                <button type="submit" class="btn btn-secondary">Unavailable</button>
+                                            </td>
+                                            {% endif %}
+                                    {% elseif password.securityLevel == 'high' %}
+                                        {% if  highAuth  %}
+                                            <tr>
+                                                <td><a href="{{ path('app_password_personal',{ 'id':password.id}) }}">{{ password.local }}</a></td>
+                                                <td>{{ password.securityLevel }}</td>
+                                                <td><button type="button" onclick="copyToClipboard('{{ password.password }}')" class="btn btn-primary">Copy</button></td>
+                                                <td>
+                                                    <form action="{{ path('app_password_delete',{'id':password.id}) }}">
+                                                        <button type="submit" class="btn btn-danger">Delete</button>
+                                                    </form>
+                                                </td>
+                                            </tr>
+                                        {% else %}
+                                            <tr>
+                                                <td>No Authorization </td>
+                                                <td> {{ password.securityLevel  }}</td>
+                                                <td>
+                                                    <form action="{{ path('app_pincode_secret_insert') }}">
+                                                        <button type="submit" class="btn btn-primary">Get authorization</button>
+                                                    </form>
+                                                </td>
+                                                <td>
+                                                    <button type="submit" class="btn btn-secondary">Unavailable</button>
+                                                </td>
+                                            </tr>
+                                        {% endif %}
+                                    {% endif %}
                                 {% endfor %}
                             </tbody>
                         </table>
@@ -40,7 +91,7 @@
                 </div>
             </div>
         {% else %}
-            <h2>There are no passwords saved</h2>
+            <h2>You have no passwords saved</h2>
         {% endif %}
     </div>
 {% endblock %}

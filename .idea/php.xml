@@ -36,7 +36,6 @@
       <path value="$PROJECT_DIR$/App/vendor/symfony/polyfill-intl-icu" />
       <path value="$PROJECT_DIR$/App/vendor/symfony/config" />
       <path value="$PROJECT_DIR$/App/vendor/symfony/options-resolver" />
-      <path value="$PROJECT_DIR$/App/vendor/symfony/form" />
       <path value="$PROJECT_DIR$/App/vendor/symfony/string" />
       <path value="$PROJECT_DIR$/App/vendor/symfony/routing" />
       <path value="$PROJECT_DIR$/App/vendor/symfony/polyfill-intl-grapheme" />
@@ -60,7 +59,6 @@
       <path value="$PROJECT_DIR$/App/vendor/symfony/twig-bridge" />
       <path value="$PROJECT_DIR$/App/vendor/symfony/property-access" />
       <path value="$PROJECT_DIR$/App/vendor/symfony/property-info" />
-      <path value="$PROJECT_DIR$/App/vendor/symfony/process" />
       <path value="$PROJECT_DIR$/App/vendor/symfony/doctrine-bridge" />
       <path value="$PROJECT_DIR$/App/vendor/symfony/translation-contracts" />
       <path value="$PROJECT_DIR$/App/vendor/symfony/stopwatch" />
@@ -86,13 +84,16 @@
       <path value="$PROJECT_DIR$/App/vendor/symfony/asset" />
       <path value="$PROJECT_DIR$/App/vendor/symfony/workflow" />
       <path value="$PROJECT_DIR$/App/vendor/symfony/http-client-contracts" />
-      <path value="$PROJECT_DIR$/App/vendor/symfony/http-client" />
       <path value="$PROJECT_DIR$/App/vendor/symfony/stimulus-bundle" />
       <path value="$PROJECT_DIR$/App/vendor/symfony/ux-turbo" />
       <path value="$PROJECT_DIR$/App/vendor/symfony/polyfill-intl-idn" />
-      <path value="$PROJECT_DIR$/App/vendor/symfony/mailer" />
-      <path value="$PROJECT_DIR$/App/vendor/symfony/mime" />
       <path value="$PROJECT_DIR$/App/vendor/egulias/email-validator" />
+      <path value="$PROJECT_DIR$/App/vendor/symfonycasts/reset-password-bundle" />
+      <path value="$PROJECT_DIR$/App/vendor/symfony/mime" />
+      <path value="$PROJECT_DIR$/App/vendor/symfony/process" />
+      <path value="$PROJECT_DIR$/App/vendor/symfony/mailer" />
+      <path value="$PROJECT_DIR$/App/vendor/symfony/form" />
+      <path value="$PROJECT_DIR$/App/vendor/symfony/http-client" />
     </include_path>
   </component>
   <component name="PhpProjectSharedConfiguration" php_language_level="8.2" />
